@@ -3,5 +3,24 @@
 }
 
 .leading-title {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Gowun Batang', serif;
+}
+
+.jumbotron {
+  background-image: url("https://erticonetwork.com/wp-content/uploads/2018/11/2018_-shutterstock_drone-logistics-1280x640.jpg");
+  background-size: cover;
+  height: 800px;
+}
+
+.card-title {
+  font-family: 'Fredoka One', cursive;
+}
+
+.scoop-price {
+  font-family: 'Mada', sans-serif;
+  font-size: 200%;
+}
+
+.fa-shopping-basket {
+  width: 50px;
 }
