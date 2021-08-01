@@ -2,21 +2,19 @@
 <html>
 
 <head>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width">
-   <title>Drolato Order</title>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
-   <style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Drolato Order</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
+  <style>
     @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Mada:wght@500&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&display=swap');
-   </style>
-   <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-   <link href="style.css" rel="stylesheet" type="text/css" />
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -63,73 +61,193 @@
   </div>
 
   <div class="container">
+
     <div class="row justify-content-between">
 
       <div class="col col-xs-12 col-sm-6 col-md-4">
-        <div class="card card-first">
-          <img class="card-img-top" src="https://beamingbaker.com/wp-content/uploads/2015/01/IGT1-3-Ingredient-Homemade-Mango-Ice-Cream-Recipe-Easy-1.jpg" alt="Card image cap">
+
+        <div class="card card-first mt-3">
+
+          <img class="card-img-top" src="https://beamingbaker.com/wp-content/uploads/2015/01/IGT1-3-Ingredient-Homemade-Mango-Ice-Cream-Recipe-Easy-1.jpg" alt="Card image cap" data-toggle="tooltip" data-placement="bottom" title="tooltip on bottom">
+
           <div class="card-body">
+
             <h3 class="card-title text-center text-warning">COCONUT MANGO <span class="badge badge-success">NEW</span></h3>
             <p class="card-text text-center coconut-mango-desc">This gelato made with mangoes and coconuts is just like icecream. Except a little lovelier.</p>
             <p class="card-text text-center text-success scoop-price">$2.30/scoop</p>
+
             <div class="text-center card-bottom">
+
               <div class="icecream-type d-flex bd-highlight mb-3">
+		      
                 <div class="justify-content-around">
+			
                   <button type="button" class="btn btn-primary cup-type p-2 bd-highlight">CUP</a>
                   <button type="button" class="btn btn-primary cone-type p-2 bd-highlight">CONE</a>
+			
                 </div>
-                <button type="button" class="btn btn-primary add-cart ml-auto p-2 bd-highlight">
+		      
+                <span data-toggle="modal" data-target="#coconutMangoOrderModal" class="ml-auto">
+                  <button type="button" class="btn btn-primary add-btn ml-auto p-2 bd-highlight" data-toggle="tooltip" data-placement="top" title="Add to cart" >
+                  <span class="sr-only">Add To Cart</span>
                   <i class="fa fa-shopping-basket"></i>
-                </button>
+                  </button>
+                </span>
+		      
               </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- THE COCONUT MANGO ORDER MODAL -->
+        <div class="modal fade" id="coconutMangoOrderModal" tabindex="-1" role="dialog" aria-labelledby="coconutMangoModalLabel" aria-hidden="true">
+
+          <div class="modal-dialog modal-dialog-centered" role="document">
+
+            <div class="modal-content">
+
+              <div class="modal-header">
+
+                <h4 class="modal-title" id="coconutMangoModalLabel">Drolato Order</h4>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+
+              </div> 
+
+              <div class="modal-body">
+
+                <form>
+
+                  <div class="row g-2">
+
+                    <div class="col-md">
+
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="firstNameInput" aria-describedby="firstName" placeholder="First Name" >
+                        <label for="firstNameInput" class="form-label">First Name</label>
+                      </div> 
+
+                    </div>
+
+                    <div class="col-md">
+
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="lastNameInput" aria-describedby="lastName" placeholder="Last Name" > 
+                        <label for="lastNameInput" class="form-label">Last Name</label>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="emailInput" aria-describedby="email" placeholder="Email" >
+                    <label for="emailInput" class="form-label">Email Address</label>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input type="address" class="form-control" id="addressInput" aria-describedby="address" placeholder="Address">
+                    <label for="addressInput" class="form-label">Address</label>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="coconutMangoQuantityInput" class="form-label">Quantity</label>
+                    <input type="number" class="form-control" id="coconutMangoQuantity" aria-describedby="coconutMangoQuantity" min="0" value="0">
+                  </div>
+
+                </form>
+
+              </div>
+
+              <div class="modal-footer">
+
+                <button type="button" class="btn btn-primary mr-auto">
+                  Confirm
+                </button>
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                  Close
+                </button>
+
+              </div>
+
             </div>
           </div>
         </div>
+
       </div>
 
       <div class="col col-xs-12 col-sm-6 col-md-4">
-        <div class="card card-second">
-          <img class="card-img-top" src="https://nz.factory.nestle.com/sites/g/files/pydnoa371/files/caramel_2new.png" style="height: 350px;">
+
+        <div class="card card-second mt-3">
+
+          <img class="card-img-top" src="https://nz.factory.nestle.com/sites/g/files/pydnoa371/files/caramel_2new.png" style="height: 350px;" data-toggle="tooltip" data-placement="bottom" title="tooltip on bottom">
+
           <div class="card-body">
+
             <h3 class="card-title text-center text-warning">SALTED CARAMEL <span class="badge badge-success">NEW</span></h3>
+
             <p class="card-text text-center salted-caramel-desc">These are sweet, salty, sour, bitter and umami. Salted caramel combines two of these, giving an effect that chefs call “flavour layering”. Salt also acts as an enhancer of flavour (that's why you sprinkle it on your chips, for instance), so that's why it makes caramel taste even better. YUMMY!</p>
             <p class="card-text text-center text-success scoop-price">$2.50/scoop</p>
+
             <div class="text-center card-bottom">
+
               <div class="icecream-type d-flex bd-highlight mb-3">
+
                 <div class="justify-content-around">
                   <button type="button" class="btn btn-primary cup-type p-2 bd-highlight">CUP</a>
                   <button type="button" class="btn btn-primary cone-type p-2 bd-highlight">CONE</a>
                 </div>
-                <button type="button" class="btn btn-primary add-cart ml-auto p-2 bd-highlight">
+
+                <button type="button" class="btn btn-primary add-btn ml-auto p-2 bd-highlight" data-toggle="tooltip" data-placement="top" title="Add to cart" >
+                  <span class="sr-only">Add To Cart</span>
                   <i class="fa fa-shopping-basket"></i>
                 </button>
+
               </div>
+
             </div>
             
           </div>
+
         </div>
+
       </div>
 
       <div class="col col-xs-12 col-sm-6 col-md-4">
-        <div class="card card-third">
-          <img class="card-img-top" src="https://vintagekitchennotes.com/wp-content/uploads/2020/01/Strawberry-ice-cream-10..jpg" alt="Card image cap">
+
+        <div class="card card-third mt-3">
+
+          <img class="card-img-top" src="https://vintagekitchennotes.com/wp-content/uploads/2020/01/Strawberry-ice-cream-10..jpg" alt="Card image cap" data-toggle="tooltip" data-placement="bottom" title="tooltip on bottom" >
+
           <div class="card-body">
+
             <h3 class="card-title text-center text-warning">STRAWBERRIES AND CREAM <span class="badge badge-success">NEW</span></h3>
             <p class="card-text text-center strawberries-cream-desc">This gelato made with mangoes and coconuts is just like icecream. Except a little lovelier.</p>
             <p class="card-text text-center text-success scoop-price">$1.90/scoop</p>
+
             <div class="text-center card-bottom">
               <div class="icecream-type d-flex bd-highlight mb-3">
                 <div class="justify-content-around">
                   <button type="button" class="btn btn-primary cup-type p-2 bd-highlight">CUP</a>
                   <button type="button" class="btn btn-primary cone-type p-2 bd-highlight">CONE</a>
                 </div>
-                <button type="button" class="btn btn-primary add ml-auto p-2 bd-highlight">
+                <button type="button" class="btn btn-primary add-btn ml-auto p-2 bd-highlight" data-toggle="tooltip" data-placement="top" title="Add to cart" >
+                  <span class="sr-only">Add To Cart</span>
                   <i class="fa fa-shopping-basket"></i>
                 </button>
               </div>
             </div>
+
           </div>
+
         </div>
+
       </div>
 
     </div>
@@ -181,9 +299,11 @@
 
 	<script src="script.js">
 	</script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </body>
 
 </html>
