@@ -1,4 +1,11 @@
-//****************//
+$('.cup-type').click(() => {
+  $('.cone-type').addClass("disabled")
+})
+
+// Initializing tooltips everywhere on the page
+$(() => {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 // This function checks whether the name is empty
 const isValidName = name => {
 
@@ -9,7 +16,7 @@ const isValidName = name => {
 //****************//
 
 //****************//
-// This runs when the checkout button is clicked
+/*
 $('.checkout-button').click(() => {
   // Check whether the user wants a cone or a cup
   const getIcecreamType = $('.icecream-type').val()
@@ -54,4 +61,4 @@ $('.checkout-button').click(() => {
   // Alert with final amount
   alert(messageText);
 });
-//****************//
+*/
