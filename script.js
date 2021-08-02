@@ -6,6 +6,26 @@ $('.cup-type').click(() => {
 $(() => {
   $('[data-toggle="tooltip"]').tooltip()
 })
+
+// Disabling form submissions if there are invalid 
+$(() => {
+  'use strict'
+
+  var forms = document.querySelectorAll(".order-form")
+
+  Array.prototype.slice.call(forms)
+    .forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add("was-validated")
+      }, false)
+    })
+})
+
 // This function checks whether the name is empty
 const isValidName = name => {
 
