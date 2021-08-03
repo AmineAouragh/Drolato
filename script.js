@@ -30,13 +30,13 @@ $(() => {
 $("input[type='button']").click(() => {
 
   const gelato_type = $("input[name='gelato-type']:checked").val()
-  const gelato_quantity = $("#coconutMangoQuantity").val()
+  const gelato_quantity = $("#quantity_scoops_coconut_mango").val()
   const gelato_type_desc = gelato_quantity == 1 ? gelato_type : `${gelato_type}s`
 
   if (gelato_type) {
     $(".order-detail").text(`You chose ${gelato_quantity} ${gelato_type_desc}`)
   }
-  
+
 })
 
 // This function checks whether the name is empty
