@@ -2,10 +2,10 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Drolato Order</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width">
+   <title>Drolato Order</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
@@ -13,7 +13,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Mada:wght@500&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&display=swap');
   </style>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -79,21 +79,16 @@
             <div class="text-center card-bottom">
 
               <div class="icecream-type d-flex bd-highlight mb-3">
-		      
                 <div class="justify-content-around">
-			
                   <button type="button" class="btn btn-primary cup-type p-2 bd-highlight">CUP</a>
                   <button type="button" class="btn btn-primary cone-type p-2 bd-highlight">CONE</a>
-			
                 </div>
-		      
                 <span data-toggle="modal" data-target="#coconutMangoOrderModal" class="ml-auto">
                   <button type="button" class="btn btn-primary add-btn ml-auto p-2 bd-highlight" data-toggle="tooltip" data-placement="top" title="Add to cart" >
                   <span class="sr-only">Add To Cart</span>
                   <i class="fa fa-shopping-basket"></i>
                   </button>
                 </span>
-		      
               </div>
 
             </div>
@@ -103,7 +98,7 @@
         </div>
 
         <!-- THE COCONUT MANGO ORDER MODAL -->
-        <div class="modal fade" id="coconutMangoOrderModal" tabindex="-1" role="dialog" aria-labelledby="coconutMangoModalLabel" aria-hidden="true">
+        <div class="modal fade " id="coconutMangoOrderModal" tabindex="-1" role="dialog" aria-labelledby="coconutMangoModalLabel" aria-hidden="true">
 
           <div class="modal-dialog modal-dialog-centered" role="document">
 
@@ -121,15 +116,25 @@
 
               <div class="modal-body">
 
-                <form>
+                <form class="order-form" novalidate>
 
                   <div class="row g-2">
 
                     <div class="col-md">
 
                       <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="firstNameInput" aria-describedby="firstName" placeholder="First Name" >
+
+                        <input type="text" class="form-control" id="firstNameInput" aria-describedby="firstName" placeholder="First Name" required>
                         <label for="firstNameInput" class="form-label">First Name</label>
+
+                        <div class="valid-feedback">
+                          Looks good!
+                        </div>
+
+                        <div class="invalid-feedback">
+                          Please provide your first name.
+                        </div>
+
                       </div> 
 
                     </div>
@@ -137,8 +142,18 @@
                     <div class="col-md">
 
                       <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="lastNameInput" aria-describedby="lastName" placeholder="Last Name" > 
+
+                        <input type="text" class="form-control" id="lastNameInput" aria-describedby="lastName" placeholder="Last Name" required> 
                         <label for="lastNameInput" class="form-label">Last Name</label>
+
+                        <div class="valid-feedback">
+                          Looks good!
+                        </div>
+
+                        <div class="invalid-feedback">
+                          Please provide your last name.
+                        </div>
+
                       </div>
 
                     </div>
@@ -146,35 +161,74 @@
                   </div>
 
                   <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="emailInput" aria-describedby="email" placeholder="Email" >
+
+                    <input type="email" class="form-control" id="emailInput" aria-describedby="email" placeholder="Email" required>
                     <label for="emailInput" class="form-label">Email Address</label>
+
+                    <div class="valid-feedback">
+                      Looks good! 
+                    </div>
+
+                    <div class="invalid-feedback">
+                      Please provide your email.
+                    </div>
+
                   </div>
 
                   <div class="form-floating mb-3">
-                    <input type="address" class="form-control" id="addressInput" aria-describedby="address" placeholder="Address">
+
+                    <input type="address" class="form-control" id="addressInput" aria-describedby="address" placeholder="123 Main St" required>
                     <label for="addressInput" class="form-label">Address</label>
+
+                    <div class="valid-feedback">
+                      Looks good! 
+                    </div>
+
+                    <div class="invalid-feedback">
+                      Please provide your address. 
+                    </div>
+
                   </div>
 
-                  <div class="form-group">
-                    <label for="coconutMangoQuantityInput" class="form-label">Quantity</label>
-                    <input type="number" class="form-control" id="coconutMangoQuantity" aria-describedby="coconutMangoQuantity" min="0" value="0">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gelato-type" id="cup-coconut-mango" value="cup">
+                    <label class="form-check-label" for="cup-coconut-mango">Cup</label> 
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gelato-type" id="cone-coconut-mango" value="cone">
+                    <label class="form-check-label" for="cone-coconut-mango">Cone</label>
+                  </div>
+
+                  <div class="row g-2">
+                    <div class="col-md-4">
+                      <label for="coconutMangoQuantityInput" class="form-label">Quantity: </label>
+                    </div>
+                    <div class="col-md-8">
+                      <input type="range" class="form-range" id="quantity_scoops_coconut_mango" aria-describedby="coconutMangoQuantity" min="0" max="20" step="1" required>
+                    </div>
+                  </div>
+
+                  <p><input type="button" value="Order Detail"></p>
+
+                  <div class="order-detail">
+                  </div>
+
+                  <div class="modal-footer">
+
+                    <button type="submit" class="btn btn-primary mr-auto">
+                      Confirm
+                    </button>
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                      Close
+                    </button>
+
                   </div>
 
                 </form>
 
-              </div>
-
-              <div class="modal-footer">
-
-                <button type="button" class="btn btn-primary mr-auto">
-                  Confirm
-                </button>
-
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                  Close
-                </button>
-
-              </div>
+              </div>           
 
             </div>
           </div>
