@@ -5,7 +5,8 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width">
    <title>Drolato Order</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
@@ -192,12 +193,19 @@
 
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="gelato-type" id="cup-coconut-mango" value="cup">
-                    <label class="form-check-label" for="cup-coconut-mango">Cup</label> 
+                    <label class="form-check-label" for="cup-coconut-mango">
+                      Cup 
+                      <img src="https://static.vecteezy.com/system/resources/thumbnails/000/558/860/small/icecream_cup_solid-03.jpg" class="img-responsive" height="90">
+                    </label> 
+                    
                   </div>
 
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="gelato-type" id="cone-coconut-mango" value="cone">
-                    <label class="form-check-label" for="cone-coconut-mango">Cone</label>
+                    <label class="form-check-label" for="cone-coconut-mango">
+                      Cone
+                      <img src="https://img.icons8.com/ios/452/ice-cream-cone.png" class="img-responsive" height="80">
+                    </label> 
                   </div>
 
                   <div class="row g-2">
@@ -212,6 +220,34 @@
                   <p><input type="button" value="Order Detail"></p>
 
                   <div class="order-detail">
+                  </div>
+
+                  <div class="accordion" id="customer_data_accordion">
+
+                    <div class="accordion-item">
+
+                      <h2 class="accordion-header" id="heading">
+
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapse">
+                          Why Do We Need This Data
+                        </button>
+
+                      </h2>
+
+                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="heading" data-bs-parent="#customer_data_accordion">
+
+                        <div class="accordion-body">
+
+                          <p>TEST #0</p>
+                          <p>TEST #1</p>
+                          <p>TEST #2</p>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
                   </div>
 
                   <div class="modal-footer">
