@@ -27,6 +27,10 @@ $(() => {
 })
 
 // ******* ORDER DETAILS TEXT ********* //
+$("#quantity_scoops_coconut_mango").on("input change", e => {
+  $("label[for='coconutMangoQuantityInput']").text(`Quantity: ${e.target.value}`)
+})
+
 $("input[type='button']").click(() => {
 
   const gelato_type = $("input[name='gelato-type']:checked").val()
@@ -39,13 +43,15 @@ $("input[type='button']").click(() => {
 
 })
 
-// This function checks whether the name is empty
+// ******** CHECK FORM FIELDS VALIDITY ********** //
 const isValidName = name => {
-
-  let regex = /[a-zA-Z]{2,}\D/gi
+  let regex = /[^0-9.*_?!]{2,}/gi
   return (name.match(regex)) ? true : false
-
 }
+
+const customer_first_name = $("#firstNameInput").val()
+const customer_last_name = $("#lastNameInput").val()
+
 //****************//
 
 //****************//
