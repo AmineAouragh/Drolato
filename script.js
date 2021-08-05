@@ -7,25 +7,6 @@ $(() => {
   $('[data-toggle="tooltip"]').tooltip()
 })
 
-// Disabling form submissions if there are invalid 
-$(() => {
-  'use strict'
-
-  var forms = document.querySelectorAll(".order-form")
-
-  Array.prototype.slice.call(forms)
-    .forEach(form => {
-      form.addEventListener('submit', event => {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-
-        form.classList.add("was-validated")
-      }, false)
-    })
-})
-
 // ******* ORDER DETAILS TEXT ********* //
 $("#quantity_scoops_coconut_mango").on("input change", e => {
   $("label[for='coconutMangoQuantityInput']").text(`Quantity: ${e.target.value}`)
@@ -51,9 +32,35 @@ const isValidName = name => {
 
 const customer_first_name = $("#firstNameInput").val()
 const customer_last_name = $("#lastNameInput").val()
+const customer_email = $("#emailInput").val()
+
+$(".customer_name").text(`${customer_first_name} ${customer_last_name}!`)
+$(".customer_email").text(`${customer_email}`)
+
+$("button[type='submit']").click(() => {
+  $(".toast").toast.show()
+})
 
 //****************//
+// Disabling form submissions if there are invalid 
+$(() => {
+  'use strict'
 
+  var forms = document.querySelectorAll(".order-form")
+
+  Array.prototype.slice.call(forms)
+    .forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add("was-validated")
+
+      }, false)
+    })
+})
 //****************//
 /*
 $('.checkout-button').click(() => {
