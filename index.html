@@ -14,6 +14,8 @@
     @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&display=swap');
   </style>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+
 	<link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -47,6 +49,12 @@
           <a class="nav-link" href="#">Support</a>
         </li>
 
+        <li class="nav-item">
+          <a class="btn btn-warning" data-bs-toggle="offcanvas" href="#offcanvasCart" role="button" aria-controls="offcanvasCart">
+            My Cart
+          </a>
+        </li>
+
       </ul>
 
     </div>
@@ -58,6 +66,23 @@
     <p class="lead text-center">
       <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </p>
+  </div>
+
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
+
+    <div class="offcanvas-header">
+
+      <h4 class="offcanvas-title" id="offcanvasCartLabel">My Cart</h4>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+    </div>
+
+    <div class="offcanvas-body">
+
+      <h5 class="customer"></h5>
+
+    </div>
+
   </div>
 
 	<div class="container">
@@ -80,8 +105,7 @@
 
               <div class="icecream-type d-flex bd-highlight mb-3">
                 <div class="justify-content-around">
-                  <button type="button" class="btn btn-primary cup-type p-2 bd-highlight">CUP</a>
-                  <button type="button" class="btn btn-primary cone-type p-2 bd-highlight">CONE</a>
+                  <i class="fa fa-heart"></i>
                 </div>
                 <span data-toggle="modal" data-target="#coconutMangoOrderModal" class="ml-auto">
                   <button type="button" class="btn btn-primary add-btn ml-auto p-2 bd-highlight" data-toggle="tooltip" data-placement="top" title="Add to cart" >
@@ -216,6 +240,10 @@
                     </div>
                   </div>
 
+                  <div>
+                    <p>Cost: <span class="coconut_mango_prize"></span></p>
+                  </div>
+
                   <p><input type="button" value="Order Detail"></p>
 
                   <div class="order-detail">
@@ -271,7 +299,7 @@
 
         <!--A toast message to confirm the customer's order-->
         <div class="position-fixed bottom-0 end-0 p-3" style="z-index:11">
-          <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+          <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
             <div class="toast-header">
               <strong class="me-auto">Amine Aouragh from DROLATO</strong>
               <small>Now</small>
@@ -377,9 +405,7 @@
 
 </div>
 
-	<script src="script.js">
-	</script>
-
+	<script src="script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
