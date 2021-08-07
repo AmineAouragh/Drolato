@@ -10,7 +10,9 @@ $(() => {
 // ******* ORDER DETAILS TEXT ********* //
 $("#quantity_scoops_coconut_mango").on("input change", e => {
   $("label[for='coconutMangoQuantityInput']").text(`Quantity: ${e.target.value}`)
-  $(".coconut_mango_prize").text(`${e.target.value}` * 2.30).addClass("text-success")
+  var quantityInput = e.target.value 
+  var price_per_quantity = (quantityInput * 2.30).toFixed(2)
+  $(".coconut_mango_prize").text(`${price_per_quantity}`).addClass("text-success")
 })
 
 $("input[type='button']").click(() => {
@@ -94,7 +96,6 @@ $('.checkout-button').click(() => {
   // Check whether the user wants a cone or a cup
   const getIcecreamType = $('.icecream-type').val()
   localStorage.setItem("Icecream Type", getIcecreamType)
-  
 
   // Get the quanity of scoops of items //
   const getQuantityCoconutMango = $('.quantity-scoops-coconut-mango').val()
