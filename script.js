@@ -10,6 +10,7 @@ $(() => {
 // ******* ORDER DETAILS TEXT ********* //
 $("#quantity_scoops_coconut_mango").on("input change", e => {
   $("label[for='coconutMangoQuantityInput']").text(`Quantity: ${e.target.value}`)
+  $(".coconut_mango_prize").text(`${e.target.value}` * 2.30).addClass("text-success")
 })
 
 $("input[type='button']").click(() => {
@@ -24,21 +25,47 @@ $("input[type='button']").click(() => {
 
 })
 
+// ******** SENDING EMAIL TO CUSTOMERS *********** //
+
+
 // ******** CHECK FORM FIELDS VALIDITY ********** //
 const isValidName = name => {
   let regex = /[^0-9.*_?!]{2,}/gi
   return (name.match(regex)) ? true : false
 }
 
-const customer_first_name = $("#firstNameInput").val()
-const customer_last_name = $("#lastNameInput").val()
-const customer_email = $("#emailInput").val()
+$("button[type='submit']").click(e => {
 
-$(".customer_name").text(`${customer_first_name} ${customer_last_name}!`)
-$(".customer_email").text(`${customer_email}`)
+  e.preventDefault()
+  e.stopPropagation()
 
-$("button[type='submit']").click(() => {
-  $(".toast").toast.show()
+  const customer_first_name = $("#firstNameInput").val()
+  const customer_last_name = $("#lastNameInput").val()
+  const customer_email = $("#emailInput").val()
+
+  $(".customer_name").text(`${customer_first_name} ${customer_last_name}!`)
+  $(".customer_email").text(`${customer_email}`)
+
+  setTimeout(() => {
+    $(".toast").toast('show')
+  }, 2000)
+
+  setTimeout(() => {
+    Email.send({
+      Host: "smtp.gmail.com",
+      Username: "drolato@gmail.com",
+      Password: "michaelcorleone1974",
+      To: `${customer_email}`,
+      From: "drolato@gmail.com",
+      Subject: "Drolato Order",
+      Body: `Dear ${customer_first_name} ${customer_last_name}`
+    })
+    .then(() => {
+      console.log("Email sent successfully")
+    })
+  }, 3000)
+
+
 })
 
 //****************//
@@ -68,20 +95,6 @@ $('.checkout-button').click(() => {
   const getIcecreamType = $('.icecream-type').val()
   localStorage.setItem("Icecream Type", getIcecreamType)
   
-  // Get the user's name at checkout
-  const getName = $('.name-for-checkout').val();
-  localStorage.setItem("Customer Name", getName)
-
-  // Check if the name input is empty
-  if (!isValidName(getName)) {
-    alert('Please enter a name for the order!');
-    return;
-  }
-
-  // This is the price of each product //
-  const coconut_mango_price = 2.3;
-  const salted_caramel_price = 2.5;
-  const strawberries_cream_price = 1.90;
 
   // Get the quanity of scoops of items //
   const getQuantityCoconutMango = $('.quantity-scoops-coconut-mango').val()
