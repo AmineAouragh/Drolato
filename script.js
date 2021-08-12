@@ -1,5 +1,16 @@
-$('.cup-type').click(() => {
-  $('.cone-type').addClass("disabled")
+$("#add-btn-coconut").click(function() {
+  $(this).toggleClass('btn-primary btn-success')
+  $(".card-first").addClass("border border-4 border-success")
+})
+
+$("#add-btn-saltedCaramel").click(function() {
+  $(this).toggleClass('btn-primary btn-success')
+  $(".card-second").addClass("border border-4 border-success")
+})
+
+$("#add-btn-strawberries").click(function() {
+  $(this).toggleClass('btn-primary btn-success')
+  $(".card-third").addClass("border border-4 border-success")
 })
 
 // Initializing tooltips everywhere on the page
@@ -12,7 +23,7 @@ $("#quantity_scoops_coconut_mango").on("input change", e => {
   $("label[for='coconutMangoQuantityInput']").text(`Quantity: ${e.target.value}`)
   var quantityInput = e.target.value 
   var price_per_quantity = (quantityInput * 2.30).toFixed(2)
-  $(".coconut_mango_prize").text(`${price_per_quantity}`).addClass("text-success")
+  $(".coconut_mango_prize").text(`$${price_per_quantity}`).addClass("text-success")
 })
 
 $("input[type='button']").click(() => {
@@ -37,9 +48,10 @@ const isValidName = name => {
 }
 
 $("button[type='submit']").click(e => {
-
+  
   e.preventDefault()
   e.stopPropagation()
+  $(".spinner-border").removeClass("visually-hidden")
 
   const customer_first_name = $("#firstNameInput").val()
   const customer_last_name = $("#lastNameInput").val()
@@ -49,24 +61,10 @@ $("button[type='submit']").click(e => {
   $(".customer_email").text(`${customer_email}`)
 
   setTimeout(() => {
-    $(".toast").toast('show')
-  }, 2000)
-
-  setTimeout(() => {
-    Email.send({
-      Host: "smtp.gmail.com",
-      Username: "drolato@gmail.com",
-      Password: "michaelcorleone1974",
-      To: `${customer_email}`,
-      From: "drolato@gmail.com",
-      Subject: "Drolato Order",
-      Body: `Dear ${customer_first_name} ${customer_last_name}`
-    })
-    .then(() => {
-      console.log("Email sent successfully")
-    })
+    if (customer_first_name.length >= 2 && customer_last_name.length >= 2) {
+      $(".toast").toast('show')
+    }
   }, 3000)
-
 
 })
 
