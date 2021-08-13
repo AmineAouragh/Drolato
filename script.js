@@ -1,6 +1,13 @@
 // ************************************** //
 // ********* SELECT PRODUCTS  *********** //
 // ************************************** //
+const addToCart = (product, cart) => {
+  cart.push(product)
+  $(".badge-notification").text(cart.length)
+}
+
+
+var cart = []
 
 $("#add-btn-coconut").click(function() {
   $(this).toggleClass('btn-primary btn-success')
@@ -9,7 +16,13 @@ $("#add-btn-coconut").click(function() {
   $("#coconut-mango-description").toggleClass("text-light")
   $("#coconut-mango-scoop-price").toggleClass("text-success text-info")
   // PRODUCT STATUS
-  $(".card-first").hasClass("border-success")? console.log("1st product selected") : console.log("1st product not selected")
+  if($(".card-first").hasClass("border-success")) {
+    console.log("1st product selected")
+    addToCart($(".card-first"), cart)
+  } else {
+    console.log("1st product not selected")
+    $(".badge-notification").text("")
+  }  
 })
 
 $("#add-btn-saltedCaramel").click(function() {
@@ -19,7 +32,12 @@ $("#add-btn-saltedCaramel").click(function() {
   $("#salted-caramel-description").toggleClass("text-light")
   $("#salted-caramel-scoop-price").toggleClass("text-success text-info")
   // PRODUCT STATUS
-  $(".card-second").hasClass("border-success")? console.log("2nd product selected") : console.log("2nd product not selected")
+  if($(".card-second").hasClass("border-success")) {
+    console.log("2nd product selected")
+    addToCart($(".card-second"), cart)
+  } else {
+    console.log("2nd product not selected")
+  } 
 })
 
 $("#add-btn-strawberries").click(function() {
@@ -29,7 +47,12 @@ $("#add-btn-strawberries").click(function() {
   $("#strawberries-cream-description").toggleClass("text-light")
   $("#strawberries-cream-scoop-price").toggleClass("text-success text-info")
   // PRODUCT STATUS
-  $(".card-third").hasClass("border-success")? console.log("3rd product selected") : console.log("3rd product not selected")
+  if($(".card-third").hasClass("border-success")) {
+    console.log("3rd product selected")
+    addToCart($(".card-third"), cart)
+  } else {
+    console.log("3rd product not selected")
+  } 
 })
 
 // ******************************************************* //
@@ -86,15 +109,16 @@ $("button[type='submit']").click(e => {
   
   e.preventDefault()
   e.stopPropagation()
-  $(this).addClass("disabled")
   
-  function loading() {
     $(".spinner-border").removeClass("visually-hidden")
     $(".confirm-button").addClass("visually-hidden")
     $(".loading-btn").removeClass("visually-hidden")
-  }
+    setTimeout(() => {
+      $(".spinner-border").addClass("visually-hidden")
+      $(".confirm-button").removeClass("visually-hidden")
+      $(".loading-btn").addClass("visually-hidden")
+    }, 2800)
 
-  setTimeout(loading, 1000)
 
   // ******************************************* //
   // ********* GETTING CUSTOMER DATA *********** //
@@ -105,7 +129,9 @@ $("button[type='submit']").click(e => {
   const customer_email = $("#emailInput").val()
 
   $(".customer_name").text(`${customer_first_name} ${customer_last_name}!`)
+  $(".customer_name").addClass("alert-link")
   $(".customer_email").text(`${customer_email}`)
+  $(".customer_email").addClass("alert-link")
   
   
   setTimeout(() => {
