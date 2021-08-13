@@ -1,30 +1,61 @@
+// ************************************** //
+// ********* SELECT PRODUCTS  *********** //
+// ************************************** //
+
 $("#add-btn-coconut").click(function() {
   $(this).toggleClass('btn-primary btn-success')
-  $(".card-first").addClass("border border-4 border-success")
+  $(".card-first").toggleClass("border border-4 border-success bg-success")
+  $(".badge_first_product").toggleClass("badge-success badge-info")
+  $("#coconut-mango-description").toggleClass("text-light")
+  $("#coconut-mango-scoop-price").toggleClass("text-success text-info")
+  // PRODUCT STATUS
+  $(".card-first").hasClass("border-success")? console.log("1st product selected") : console.log("1st product not selected")
 })
 
 $("#add-btn-saltedCaramel").click(function() {
   $(this).toggleClass('btn-primary btn-success')
-  $(".card-second").addClass("border border-4 border-success")
+  $(".card-second").toggleClass("border border-4 border-success bg-success")
+  $(".badge_second_product").toggleClass("badge-success badge-info")
+  $("#salted-caramel-description").toggleClass("text-light")
+  $("#salted-caramel-scoop-price").toggleClass("text-success text-info")
+  // PRODUCT STATUS
+  $(".card-second").hasClass("border-success")? console.log("2nd product selected") : console.log("2nd product not selected")
 })
 
 $("#add-btn-strawberries").click(function() {
   $(this).toggleClass('btn-primary btn-success')
-  $(".card-third").addClass("border border-4 border-success")
+  $(".card-third").toggleClass("border border-4 border-success bg-success")
+  $(".badge_third_product").toggleClass("badge-success badge-info")
+  $("#strawberries-cream-description").toggleClass("text-light")
+  $("#strawberries-cream-scoop-price").toggleClass("text-success text-info")
+  // PRODUCT STATUS
+  $(".card-third").hasClass("border-success")? console.log("3rd product selected") : console.log("3rd product not selected")
 })
 
+// ******************************************************* //
+// ************ ADD SELECTED PRODUCTS TO CART ************ //
+// ******************************************************* //
+
+
+
 // Initializing tooltips everywhere on the page
-$(() => {
+$(function() {
   $('[data-toggle="tooltip"]').tooltip()
 })
 
+// ************************************ //
 // ******* ORDER DETAILS TEXT ********* //
+// ************************************ //
+
 $("#quantity_scoops_coconut_mango").on("input change", e => {
   $("label[for='coconutMangoQuantityInput']").text(`Quantity: ${e.target.value}`)
   var quantityInput = e.target.value 
   var price_per_quantity = (quantityInput * 2.30).toFixed(2)
   $(".coconut_mango_prize").text(`$${price_per_quantity}`).addClass("text-success")
 })
+
+
+// ********* CHOOSING GELATO TYPE ********** //
 
 $("input[type='button']").click(() => {
 
@@ -38,10 +69,14 @@ $("input[type='button']").click(() => {
 
 })
 
+// *********************************************** //
 // ******** SENDING EMAIL TO CUSTOMERS *********** //
+// *********************************************** //
 
-
+// ********************************************** //
 // ******** CHECK FORM FIELDS VALIDITY ********** //
+// ********************************************** //
+
 const isValidName = name => {
   let regex = /[^0-9.*_?!]{2,}/gi
   return (name.match(regex)) ? true : false
@@ -51,25 +86,41 @@ $("button[type='submit']").click(e => {
   
   e.preventDefault()
   e.stopPropagation()
-  $(".spinner-border").removeClass("visually-hidden")
+  $(this).addClass("disabled")
+  
+  function loading() {
+    $(".spinner-border").removeClass("visually-hidden")
+    $(".confirm-button").addClass("visually-hidden")
+    $(".loading-btn").removeClass("visually-hidden")
+  }
 
+  setTimeout(loading, 1000)
+
+  // ******************************************* //
+  // ********* GETTING CUSTOMER DATA *********** //
+  // ******************************************* //
+  
   const customer_first_name = $("#firstNameInput").val()
   const customer_last_name = $("#lastNameInput").val()
   const customer_email = $("#emailInput").val()
 
   $(".customer_name").text(`${customer_first_name} ${customer_last_name}!`)
   $(".customer_email").text(`${customer_email}`)
-
+  
+  
   setTimeout(() => {
     if (customer_first_name.length >= 2 && customer_last_name.length >= 2) {
       $(".toast").toast('show')
     }
   }, 3000)
+  
+
 
 })
 
 //****************//
 // Disabling form submissions if there are invalid 
+
 $(() => {
   'use strict'
 
@@ -88,6 +139,8 @@ $(() => {
       }, false)
     })
 })
+
+
 //****************//
 /*
 $('.checkout-button').click(() => {
