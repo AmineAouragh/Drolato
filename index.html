@@ -81,47 +81,9 @@
       <span data-toggle="modal" data-target="#orderModal">
         <button type="button" class="btn btn-primary register-btn mr-auto">
           Register 
-        </button>
       </span>
 
-    </div>
-
-  </div>
-
-	<div class="container">
-
-    <div class="row justify-content-between">
-
-      <div class="col col-xs-12 col-sm-6 col-md-4">
-
-        <div class="card card-first mt-3">
-
-          <img class="card-img-top" src="https://beamingbaker.com/wp-content/uploads/2015/01/IGT1-3-Ingredient-Homemade-Mango-Ice-Cream-Recipe-Easy-1.jpg" alt="Card image cap" data-toggle="tooltip" data-placement="bottom" title="tooltip on bottom">
-
-          <div class="card-body">
-
-            <h3 class="card-title text-center text-warning">COCONUT MANGO <span class="badge badge-success">NEW</span></h3>
-            <p class="card-text text-center coconut-mango-desc">This gelato made with mangoes and coconuts is just like icecream. Except a little lovelier.</p>
-            <p class="card-text text-center text-success scoop-price">$2.30/scoop</p>
-
-            <div class="text-center card-bottom">
-
-              <div class="icecream-type d-flex bd-highlight mb-3">
-
-                <button type="button" class="btn btn-primary ml-auto p-2 bd-highlight" data-toggle="tooltip" data-placement="top" title="Add to cart" id="add-btn-coconut" >
-                  <span class="sr-only">Add To Cart</span>
-                  <i class="fa fa-shopping-basket"></i>
-                </button>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <!-- THE ORDER MODAL -->
+      <!-- THE ORDER MODAL -->
         <div class="modal fade " id="orderModal" tabindex="-1" role="dialog" aria-labelledby="coconutMangoModalLabel" aria-hidden="true">
 
           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -281,8 +243,8 @@
 
                     <button type="submit" class="btn btn-primary mr-auto">
                       <span class="spinner-border spinner-border-sm visually-hidden" role="status" aria-hidden="true"></span>
-                      Confirm
-                      <span class="visually-hidden">Loading...</span>
+                      <span class="confirm-button" >Confirm</span>
+                      <span class="visually-hidden loading-btn">Loading...</span>
                     </button>
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -297,6 +259,43 @@
 
             </div>
           </div>
+        </div>
+
+    </div>
+
+  </div>
+
+	<div class="container">
+
+    <div class="row justify-content-between">
+
+      <div class="col col-xs-12 col-sm-6 col-md-4">
+
+        <div class="card card-first mt-3">
+
+          <img class="card-img-top" src="https://beamingbaker.com/wp-content/uploads/2015/01/IGT1-3-Ingredient-Homemade-Mango-Ice-Cream-Recipe-Easy-1.jpg" alt="Card image cap" data-toggle="tooltip" data-placement="bottom" title="tooltip on bottom">
+
+          <div class="card-body">
+
+            <h3 class="card-title text-center text-warning">COCONUT MANGO <span class="badge badge-success badge_first_product">NEW</span></h3>
+            <p class="card-text text-center" id="coconut-mango-description">This gelato made with mangoes and coconuts is just like icecream. Except a little lovelier.</p>
+            <p class="card-text text-center text-success scoop-price" id="coconut-mango-scoop-price">$2.30/scoop</p>
+
+            <div class="text-center card-bottom">
+
+              <div class="icecream-type d-flex bd-highlight mb-3">
+
+                <button type="button" class="btn btn-primary ml-auto p-2 bd-highlight" data-toggle="tooltip" data-placement="top" title="Add to cart" id="add-btn-coconut" >
+                  <span class="sr-only">Add To Cart</span>
+                  <i class="fa fa-shopping-basket"></i>
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
         <!--A toast message to confirm the customer's order-->
@@ -325,10 +324,10 @@
 
           <div class="card-body">
 
-            <h3 class="card-title text-center text-warning">SALTED CARAMEL <span class="badge badge-success">NEW</span></h3>
+            <h3 class="card-title text-center text-warning">SALTED CARAMEL <span class="badge badge-success badge_second_product">NEW</span></h3>
 
-            <p class="card-text text-center salted-caramel-desc">These are sweet, salty, sour, bitter and umami. Salted caramel combines two of these, giving an effect that chefs call “flavour layering”. Salt also acts as an enhancer of flavour (that's why you sprinkle it on your chips, for instance), so that's why it makes caramel taste even better. YUMMY!</p>
-            <p class="card-text text-center text-success scoop-price">$2.50/scoop</p>
+            <p class="card-text text-center" id="salted-caramel-description">These are sweet, salty, sour, bitter and umami. Salted caramel combines two of these, giving an effect that chefs call “flavour layering”. Salt also acts as an enhancer of flavour (that's why you sprinkle it on your chips, for instance), so that's why it makes caramel taste even better. YUMMY!</p>
+            <p class="card-text text-center text-success scoop-price" id="salted-caramel-scoop-price">$2.50/scoop</p>
 
             <div class="text-center card-bottom">
 
@@ -353,13 +352,13 @@
 
         <div class="card card-third mt-3">
 
-          <img class="card-img-top" src="https://vintagekitchennotes.com/wp-content/uploads/2020/01/Strawberry-ice-cream-10..jpg" alt="Card image cap" data-toggle="tooltip" data-placement="bottom" title="tooltip on bottom" >
+          <img class="card-img-top" src="https://vintagekitchennotes.com/wp-content/uploads/2020/01/Strawberry-ice-cream-10..jpg" alt="Card image cap" data-toggle="tooltip" data-placement="left" title="tooltip on left" >
 
           <div class="card-body">
 
-            <h3 class="card-title text-center text-warning">STRAWBERRIES AND CREAM <span class="badge badge-success">NEW</span></h3>
-            <p class="card-text text-center strawberries-cream-desc">This gelato made with mangoes and coconuts is just like icecream. Except a little lovelier.</p>
-            <p class="card-text text-center text-success scoop-price">$1.90/scoop</p>
+            <h3 class="card-title text-center text-warning">STRAWBERRIES AND CREAM <span class="badge badge-success badge_third_product">NEW</span></h3>
+            <p class="card-text text-center" id="strawberries-cream-description">This gelato made with mangoes and coconuts is just like icecream. Except a little lovelier.</p>
+            <p class="card-text text-center text-success scoop-price" id="strawberries-cream-scoop-price">$1.90/scoop</p>
 
             <div class="text-center card-bottom">
               <div class="icecream-type d-flex bd-highlight mb-3">
