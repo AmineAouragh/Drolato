@@ -82,9 +82,96 @@
         <button type="button" class="btn btn-primary register-btn mr-auto">
           Register 
       </span>
+      
+      <span data-toggle="modal" data-target="#invoiceModal">
+        <button type="button" class="btn btn-warning invice-btn ml-auto">
+          My Invoice 
+        </button>
+      </span>
+      
+
+      <!-- Invoice Modal -->
+      <div class="modal fade" id="invoiceModal" tabindex="-1" aria-labelledby="invoiceModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog">
+
+          <div class="modal-content">
+
+            <div class="modal-header">
+
+              <h5 class="modal-title" id="invoiceModalLabel">INVOICE</h5>
+
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+            </div>
+
+            <div class="modal-body">
+
+              <table class="table caption-top">
+
+                <caption>Drolato Order</caption>
+
+                <thead class="table-dark">
+
+                  <tr>
+                    <th scope="col">#</th> 
+                    <th scope="col">Product</th> 
+                    <th scope="col">Quantity</th> 
+                    <th scope="col">Price</th> 
+                  </tr>
+
+                </thead>
+
+                <tbody class="table-light">
+
+                  <tr>
+                    <th scope="row">1</th> 
+                    <td>Coconut Mango</td> 
+                    <td>3</td> 
+                    <td>$7.80</td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">2</th> 
+                    <td>Salted Caramel</td> 
+                    <td>2</td> 
+                    <td>$5</td> 
+                  </tr>
+
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Strawberries And Cream</td>
+                    <td>1</td>
+                    <td>$1.90</td>
+                  </tr>
+
+                </tbody>
+
+                <tfoot>
+
+                  <th scope="row">Total</th>
+                  <td></td>
+                  <td>6 gelatos</td>
+                  <td>$14.70</td>
+
+                </tfoot>
+
+              </table>
+
+              <div class="alert alert-dark" role="alert">
+                Your promo code: <a href="#" class="alert-link promo-code"></a>. Please make sure to keep it safe and do not share it with anyone else.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
 
       <!-- THE ORDER MODAL -->
-        <div class="modal fade " id="orderModal" tabindex="-1" role="dialog" aria-labelledby="coconutMangoModalLabel" aria-hidden="true">
+        <div class="modal fade " id="orderModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 
           <div class="modal-dialog modal-dialog-centered" role="document">
 
