@@ -117,6 +117,8 @@ $("button[type='submit']").click(e => {
       $(".spinner-border").addClass("visually-hidden")
       $(".confirm-button").removeClass("visually-hidden")
       $(".loading-btn").addClass("visually-hidden")
+      $("#orderModal").modal('hide')
+      $("#invoiceModal").modal('show')
     }, 2800)
 
 
@@ -143,6 +145,22 @@ $("button[type='submit']").click(e => {
 
 
 })
+
+// *********************************************** //
+// ************ GENERATING PROMO CODE ************ //
+// *********************************************** //
+
+const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqr*_stuvwxyz"
+const length = 14
+let promoCode = ""
+
+for (let i = 0; i < length; i++) {
+  const randomNum = Math.floor(Math.random() * characters.length)
+  promoCode += characters[randomNum]
+}
+
+console.log(`Your promo code: ${promoCode}`) // will be different with each execution
+$(".promo-code").text(promoCode)
 
 //****************//
 // Disabling form submissions if there are invalid 
