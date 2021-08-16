@@ -82,15 +82,192 @@
         <button type="button" class="btn btn-primary register-btn mr-auto">
           Register 
       </span>
-      
-      <span data-toggle="modal" data-target="#invoiceModal">
-        <button type="button" class="btn btn-warning invice-btn ml-auto">
-          My Invoice 
-        </button>
-      </span>
+
       
 
-      <!-- Invoice Modal -->
+    </div>
+
+  </div>
+
+  <!-- THE ORDER MODAL -->
+  <div class="modal fade " id="orderModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered" role="document">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+
+          <h4 class="modal-title" id="modalLabel">Drolato Order</h4>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        </div> 
+
+        <div class="modal-body">
+
+          <form class="order-form" novalidate>
+
+            <div class="row g-2">
+
+              <div class="col-md">
+
+                <div class="form-floating mb-3">
+
+                  <input type="text" class="form-control" id="firstNameInput" aria-describedby="firstName" placeholder="First Name" required>
+                  <label for="firstNameInput" class="form-label">First Name</label>
+
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+
+                  <div class="invalid-feedback">
+                    Please provide your first name.
+                  </div>
+
+                </div> 
+
+              </div>
+
+              <div class="col-md">
+
+                <div class="form-floating mb-3">
+
+                  <input type="text" class="form-control" id="lastNameInput" aria-describedby="lastName" placeholder="Last Name" required> 
+                  <label for="lastNameInput" class="form-label">Last Name</label>
+
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+
+                  <div class="invalid-feedback">
+                    Please provide your last name.
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="form-floating mb-3">
+
+              <input type="email" class="form-control" id="emailInput" aria-describedby="email" placeholder="Email" required>
+              <label for="emailInput" class="form-label">Email Address</label>
+
+              <div class="valid-feedback">
+                Looks good! 
+              </div>
+
+              <div class="invalid-feedback">
+                Please provide your email.
+              </div>
+
+            </div>
+
+            <div class="form-floating mb-3">
+
+              <input type="address" class="form-control" id="addressInput" aria-describedby="address" placeholder="123 Main St" required>
+              <label for="addressInput" class="form-label">Address</label>
+
+              <div class="valid-feedback">
+                Looks good! 
+              </div>
+
+              <div class="invalid-feedback">
+                Please provide your address. 
+              </div>
+
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gelato-type" id="cup-coconut-mango" value="cup">
+              <label class="form-check-label" for="cup-coconut-mango">
+                Cup 
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/000/558/860/small/icecream_cup_solid-03.jpg" class="img-responsive" height="90">
+              </label> 
+                    
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gelato-type" id="cone-coconut-mango" value="cone">
+              <label class="form-check-label" for="cone-coconut-mango">
+                Cone
+                <img src="https://img.icons8.com/ios/452/ice-cream-cone.png" class="img-responsive" height="80">
+              </label> 
+            </div>
+
+            <div class="row g-2">
+              <div class="col-md-4">
+                <label for="coconutMangoQuantityInput" class="form-label">Quantity: </label>
+              </div>
+              <div class="col-md-8">
+                <input type="range" class="form-range" id="quantity_scoops_coconut_mango" aria-describedby="coconutMangoQuantity" min="0" max="20" step="1" required>
+              </div>
+            </div>
+
+            <div>
+              <p>Cost: <span class="coconut_mango_prize"></span></p>
+            </div>
+
+            <p><input type="button" value="Order Detail"></p>
+
+              <div class="order-detail">
+              </div>
+
+              <div class="accordion" id="customer_data_accordion">
+
+                <div class="accordion-item">
+
+                  <h2 class="accordion-header" id="heading">
+
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Why Do We Need This Data
+                    </button>
+
+                  </h2>
+
+                  <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="heading" data-bs-parent="#customer_data_accordion">
+
+                    <div class="accordion-body">
+
+                      <p>TEST #0</p>
+                      <p>TEST #1</p>
+                      <p>TEST #2</p>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="modal-footer">
+
+                <button type="submit" class="btn btn-primary mr-auto">
+                  <span class="spinner-border spinner-border-sm visually-hidden" role="status" aria-hidden="true"></span>
+                  <span class="confirm-button" >Confirm</span>
+                  <span class="visually-hidden loading-btn">Loading...</span>
+                </button>
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                  Close
+                </button>
+
+              </div>
+
+            </form>
+
+          </div>           
+
+        </div>
+      </div>
+    </div>
+
+  <!-- Invoice Modal -->
       <div class="modal fade" id="invoiceModal" tabindex="-1" aria-labelledby="invoiceModalLabel" aria-hidden="true">
 
         <div class="modal-dialog">
@@ -170,188 +347,6 @@
 
       </div>
 
-      <!-- THE ORDER MODAL -->
-        <div class="modal fade " id="orderModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-
-          <div class="modal-dialog modal-dialog-centered" role="document">
-
-            <div class="modal-content">
-
-              <div class="modal-header">
-
-                <h4 class="modal-title" id="modalLabel">Drolato Order</h4>
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-
-              </div> 
-
-              <div class="modal-body">
-
-                <form class="order-form" novalidate>
-
-                  <div class="row g-2">
-
-                    <div class="col-md">
-
-                      <div class="form-floating mb-3">
-
-                        <input type="text" class="form-control" id="firstNameInput" aria-describedby="firstName" placeholder="First Name" required>
-                        <label for="firstNameInput" class="form-label">First Name</label>
-
-                        <div class="valid-feedback">
-                          Looks good!
-                        </div>
-
-                        <div class="invalid-feedback">
-                          Please provide your first name.
-                        </div>
-
-                      </div> 
-
-                    </div>
-
-                    <div class="col-md">
-
-                      <div class="form-floating mb-3">
-
-                        <input type="text" class="form-control" id="lastNameInput" aria-describedby="lastName" placeholder="Last Name" required> 
-                        <label for="lastNameInput" class="form-label">Last Name</label>
-
-                        <div class="valid-feedback">
-                          Looks good!
-                        </div>
-
-                        <div class="invalid-feedback">
-                          Please provide your last name.
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                  <div class="form-floating mb-3">
-
-                    <input type="email" class="form-control" id="emailInput" aria-describedby="email" placeholder="Email" required>
-                    <label for="emailInput" class="form-label">Email Address</label>
-
-                    <div class="valid-feedback">
-                      Looks good! 
-                    </div>
-
-                    <div class="invalid-feedback">
-                      Please provide your email.
-                    </div>
-
-                  </div>
-
-                  <div class="form-floating mb-3">
-
-                    <input type="address" class="form-control" id="addressInput" aria-describedby="address" placeholder="123 Main St" required>
-                    <label for="addressInput" class="form-label">Address</label>
-
-                    <div class="valid-feedback">
-                      Looks good! 
-                    </div>
-
-                    <div class="invalid-feedback">
-                      Please provide your address. 
-                    </div>
-
-                  </div>
-
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gelato-type" id="cup-coconut-mango" value="cup">
-                    <label class="form-check-label" for="cup-coconut-mango">
-                      Cup 
-                      <img src="https://static.vecteezy.com/system/resources/thumbnails/000/558/860/small/icecream_cup_solid-03.jpg" class="img-responsive" height="90">
-                    </label> 
-                    
-                  </div>
-
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gelato-type" id="cone-coconut-mango" value="cone">
-                    <label class="form-check-label" for="cone-coconut-mango">
-                      Cone
-                      <img src="https://img.icons8.com/ios/452/ice-cream-cone.png" class="img-responsive" height="80">
-                    </label> 
-                  </div>
-
-                  <div class="row g-2">
-                    <div class="col-md-4">
-                      <label for="coconutMangoQuantityInput" class="form-label">Quantity: </label>
-                    </div>
-                    <div class="col-md-8">
-                      <input type="range" class="form-range" id="quantity_scoops_coconut_mango" aria-describedby="coconutMangoQuantity" min="0" max="20" step="1" required>
-                    </div>
-                  </div>
-
-                  <div>
-                    <p>Cost: <span class="coconut_mango_prize"></span></p>
-                  </div>
-
-                  <p><input type="button" value="Order Detail"></p>
-
-                  <div class="order-detail">
-                  </div>
-
-                  <div class="accordion" id="customer_data_accordion">
-
-                    <div class="accordion-item">
-
-                      <h2 class="accordion-header" id="heading">
-
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          Why Do We Need This Data
-                        </button>
-
-                      </h2>
-
-                      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="heading" data-bs-parent="#customer_data_accordion">
-
-                        <div class="accordion-body">
-
-                          <p>TEST #0</p>
-                          <p>TEST #1</p>
-                          <p>TEST #2</p>
-
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                  <div class="modal-footer">
-
-                    <button type="submit" class="btn btn-primary mr-auto">
-                      <span class="spinner-border spinner-border-sm visually-hidden" role="status" aria-hidden="true"></span>
-                      <span class="confirm-button" >Confirm</span>
-                      <span class="visually-hidden loading-btn">Loading...</span>
-                    </button>
-
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                      Close
-                    </button>
-
-                  </div>
-
-                </form>
-
-              </div>           
-
-            </div>
-          </div>
-        </div>
-
-    </div>
-
-  </div>
-
 	<div class="container">
 
     <div class="row">
@@ -361,6 +356,8 @@
         <div class="card card-first mt-3">
 
           <img class="card-img-top" src="https://beamingbaker.com/wp-content/uploads/2015/01/IGT1-3-Ingredient-Homemade-Mango-Ice-Cream-Recipe-Easy-1.jpg" alt="Card image cap" data-toggle="tooltip" data-placement="bottom" title="tooltip on bottom">
+
+          <span class="visually-hidden first_product_identificator">1</span>
 
           <div class="card-body">
 
@@ -409,6 +406,8 @@
 
           <img class="card-img-top" src="https://nz.factory.nestle.com/sites/g/files/pydnoa371/files/caramel_2new.png" style="height: 350px;" data-toggle="tooltip" data-placement="bottom" title="tooltip on bottom">
 
+          <span class="visually-hidden second_product_identificator">2</span>
+
           <div class="card-body">
 
             <h3 class="card-title text-center text-warning">SALTED CARAMEL <span class="badge badge-success badge_second_product">NEW</span></h3>
@@ -440,6 +439,8 @@
         <div class="card card-third mt-3">
 
           <img class="card-img-top" src="https://vintagekitchennotes.com/wp-content/uploads/2020/01/Strawberry-ice-cream-10..jpg" alt="Card image cap" data-toggle="tooltip" data-placement="left" title="tooltip on left" >
+
+          <span class="visually-hidden third_product_identificator">3</span>
 
           <div class="card-body">
 
