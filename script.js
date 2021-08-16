@@ -1,13 +1,65 @@
 // ************************************** //
 // ********* SELECT PRODUCTS  *********** //
 // ************************************** //
-const addToCart = (product, cart) => {
-  cart.push(product)
+const addToCart = (product_id, cart) => {
+
+  cart.push(product_id)
   $(".badge-notification").text(cart.length)
+
+  switch(product_id) {
+    case 1:
+      console.log("You added coconut mango to your cart")
+      break 
+    case 2:
+      console.log("You added salted caramel to your cart")
+      break 
+    case 3:
+      console.log("You added strawberry and cream to your cart")
+      break 
+  }
+
+  console.log(`You have ${cart.length} product(s) now on your cart!`)
+
 }
 
+const removeFromCartAndUpdateStatus = (product_id, cart) => {
+
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i] === product_id) {
+      cart.splice(i, 1)
+      i-- 
+    } 
+  }
+
+  switch(product_id) {
+    case 1:
+      console.log("You removed coconut mango from your cart!")
+      break 
+    case 2:
+      console.log("You removed salted caramel from your cart!")
+      break 
+    case 3:
+      console.log("You removed strawberries and cream from your cart!")
+      break 
+  }
+
+  if (cart.length == 0) {
+    $(".badge-notification").text("")
+    console.log("The cart is empty now!")
+  } else {
+    $(".badge-notification").text(cart.length)
+    console.log(`You have ${cart.length} product(s) on your cart now!`)
+  }
+
+}
 
 var cart = []
+
+const coconut_mango_ID = parseInt($(".first_product_identificator").text())
+const salted_caramel_ID = parseInt($(".second_product_identificator").text())
+const strawberries_cream_ID = parseInt($(".third_product_identificator").text())
+
+console.log("Before the customer decision, the cart is empty!")
 
 $("#add-btn-coconut").click(function() {
   $(this).toggleClass('btn-primary btn-success')
@@ -17,11 +69,13 @@ $("#add-btn-coconut").click(function() {
   $("#coconut-mango-scoop-price").toggleClass("text-success text-info")
   // PRODUCT STATUS
   if($(".card-first").hasClass("border-success")) {
-    console.log("1st product selected")
-    addToCart($(".card-first"), cart)
+    //console.log("1st product selected")
+    addToCart(coconut_mango_ID, cart)
   } else {
-    console.log("1st product not selected")
-    $(".badge-notification").text("")
+    //console.log("1st product not selected")
+    if (cart.length >= 1) {
+      removeFromCartAndUpdateStatus(coconut_mango_ID, cart)
+    }
   }  
 })
 
@@ -33,10 +87,13 @@ $("#add-btn-saltedCaramel").click(function() {
   $("#salted-caramel-scoop-price").toggleClass("text-success text-info")
   // PRODUCT STATUS
   if($(".card-second").hasClass("border-success")) {
-    console.log("2nd product selected")
-    addToCart($(".card-second"), cart)
+    //console.log("2nd product selected")
+    addToCart(salted_caramel_ID, cart)
   } else {
-    console.log("2nd product not selected")
+    //console.log("2nd product not selected")
+    if (cart.length >= 1) {
+      removeFromCartAndUpdateStatus(salted_caramel_ID, cart)
+    }
   } 
 })
 
@@ -48,10 +105,13 @@ $("#add-btn-strawberries").click(function() {
   $("#strawberries-cream-scoop-price").toggleClass("text-success text-info")
   // PRODUCT STATUS
   if($(".card-third").hasClass("border-success")) {
-    console.log("3rd product selected")
-    addToCart($(".card-third"), cart)
+    //console.log("3rd product selected")
+    addToCart(strawberries_cream_ID, cart)
   } else {
-    console.log("3rd product not selected")
+    //console.log("3rd product not selected")
+    if (cart.length >= 1) {
+      removeFromCartAndUpdateStatus(strawberries_cream_ID, cart)
+    }
   } 
 })
 
@@ -117,8 +177,7 @@ $("button[type='submit']").click(e => {
       $(".spinner-border").addClass("visually-hidden")
       $(".confirm-button").removeClass("visually-hidden")
       $(".loading-btn").addClass("visually-hidden")
-      $("#orderModal").modal('hide')
-      $("#invoiceModal").modal('show')
+      //$("#invoiceModal").modal('show')
     }, 2800)
 
 
@@ -159,7 +218,7 @@ for (let i = 0; i < length; i++) {
   promoCode += characters[randomNum]
 }
 
-console.log(`Your promo code: ${promoCode}`) // will be different with each execution
+//console.log(`Your promo code: ${promoCode}`) 
 $(".promo-code").text(promoCode)
 
 //****************//
