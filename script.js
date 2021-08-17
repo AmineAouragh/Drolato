@@ -208,9 +208,11 @@ $("button[type='submit']").click(e => {
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log(`ERROR: ${error}`))
+  /*
   setTimeout(() => {
     $("#bad-word-notice").removeClass("visually-hidden")
   }, 1000)
+  */
 
   ///////////////////////////////////////////////////////////////
 
