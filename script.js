@@ -1,6 +1,7 @@
 // ************************************** //
 // ********* SELECT PRODUCTS  *********** //
 // ************************************** //
+
 const addToCart = (product_id, cart) => {
 
   cart.push(product_id)
@@ -59,7 +60,7 @@ const coconut_mango_ID = parseInt($(".first_product_identificator").text())
 const salted_caramel_ID = parseInt($(".second_product_identificator").text())
 const strawberries_cream_ID = parseInt($(".third_product_identificator").text())
 
-console.log("Before the customer decision, the cart is empty!")
+//console.log("Before the customer decision, the cart is empty!")
 
 $("#add-btn-coconut").click(function() {
   $(this).toggleClass('btn-primary btn-success')
@@ -161,7 +162,7 @@ $("input[type='button']").click(() => {
 // ********************************************** //
 
 const isValidName = name => {
-  let regex = /[^0-9.*_?!]{2,}/gi
+  let regex = /^[a-zA-Z]{2,}$/gi
   return (name.match(regex)) ? true : false
 }
 
@@ -188,6 +189,29 @@ $("button[type='submit']").click(e => {
   const customer_first_name = $("#firstNameInput").val()
   const customer_last_name = $("#lastNameInput").val()
   const customer_email = $("#emailInput").val()
+
+  if (isValidName(customer_first_name)) {
+    console.log("First name is valid")
+  } else {
+    if (customer_first_name.length == 0) {
+      console.log("Please provide your first name!")
+    } else {
+      console.log("First name is invalid")
+    }
+  }
+
+  if (isValidName(customer_last_name)) {
+    console.log("Last name is valid")
+  } else {
+    if (customer_last_name.length == 0) {
+      console.log("Please provide your last name!")
+    } else {
+      console.log("Last name is invalid")
+    }
+  }
+
+
+  // Add customer's data in toast message 
 
   $(".customer_name").text(`${customer_first_name} ${customer_last_name}!`)
   $(".customer_name").addClass("alert-link")
