@@ -190,6 +190,30 @@ $("button[type='submit']").click(e => {
   const customer_last_name = $("#lastNameInput").val()
   const customer_email = $("#emailInput").val()
 
+  // DETECTING AND REJECTING BAD WORDS
+
+  var myHeaders = new Headers()
+  myHeaders.append("apikey", "n1hkql87gggpF32GtVSrq3ZebenC90DQ")
+
+  var raw = customer_first_name
+
+  var requestOptions = {
+    method: 'POST',
+    redirect: 'follow',
+    headers: myHeaders,
+    body: raw
+  }
+
+  fetch("https://api.promptapi.com/bad_words?censor_character=*", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log(`ERROR: ${error}`))
+  setTimeout(() => {
+    $("#bad-word-notice").removeClass("visually-hidden")
+  }, 1000)
+
+  ///////////////////////////////////////////////////////////////
+
   if (isValidName(customer_first_name)) {
     console.log("First name is valid")
   } else {
