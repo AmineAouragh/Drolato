@@ -1,3 +1,25 @@
+// ************************************ //
+// ********* SEARCH FEATURE *********** //
+// ************************************ //
+
+var gelatos = [
+  {
+    "name": "Coconut Mango",
+    "description": "",
+    "price": ""
+  },
+  {
+    "name": "Salted Caramel",
+    "description": "",
+    "price": ""
+  },
+  {
+    "name": "Strawberries And Cream",
+    "description": "",
+    "price": ""
+  }
+]
+
 // ************************************** //
 // ********* SELECT PRODUCTS  *********** //
 // ************************************** //
