@@ -5,8 +5,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>Drolato Order</title>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
@@ -14,9 +17,18 @@
     @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&display=swap');
     @import url('https://use.fontawesome.com/releases/v5.8.1/css/all.css');
   </style>
+
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet"/>
+
 	<link href="style.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
@@ -61,8 +73,23 @@
   </nav>
 
   <div class="jumbotron">
-    <h1 class="display-6 leading-title text-light mr-0">Don't know what to choose? Gotcha!</h1>
-    <button type="button" class="btn btn-warning random">Random Order</button>
+    <div class="random-order">
+      <h1 class="display-6 leading-title text-light">Don't know what to choose? Gotcha!</h1>
+      <span class="text-center">
+        <button type="button" class="btn btn-warning random">Random Order</button>
+      </span>
+    </div>
+
+    <div class="input-group">
+      <div class="form-outline">
+        <input type="search" id="form1" class="form-control" />
+        <label class="form-label" for="form1">Search</label>
+      </div>
+      <button type="button" class="btn btn-primary">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+
   </div>
 
   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
@@ -78,142 +105,197 @@
 
       <h5 class="customer"></h5>
 
+      <div class="container">
+
+        <div class="row justify-content-between align-items-center cart-product-header bg-light">
+
+          <div class="col-xs col-md-5">
+            <span class="product-name"><strong>Product_Name</strong></span>
+          </div> 
+
+          <div class="col-xs col-md-3 offset-md-3">
+            <span class="product-price"><strong>Price</strong></span>
+          </div>
+
+        </div>
+
+        <div class="row bg-light justify-content-between align-items-center">
+
+          <div class="col-xs col-sm-5">
+            <span class="product-image"><img src="https://beamingbaker.com/wp-content/uploads/2015/01/IGT1-3-Ingredient-Homemade-Mango-Ice-Cream-Recipe-Easy-1.jpg" class="" style="height: 120px;"></span>
+          </div> 
+
+          <div class="col-xs col-sm-7">
+
+            <div class="row">
+
+              <div class="col-xs-7 col-md">
+                <span class="quantity_price"><strong>Price</strong></span>
+              </div> 
+
+              <div class="col-xs-5 col-md offset-md-2">
+                <span class="quantity_price_number mr-auto text-success"><strong>$2.30</strong></span>
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-xs-7 col-md">
+                <span class="shipping_price"><strong>Shipping</strong></span>
+              </div> 
+
+              <div class="col-xs-5 col-md offset-md-2">
+                <span class="shipping_price_number mr-auto text-success"><strong>$0</strong></span>
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-xs-7 col-md">
+                <span class="total_price"><strong>TOTAL</strong></span>
+              </div> 
+
+              <div class="col-xs-5 col-md offset-md-2">
+                <span class="total_price_number text-success"><strong>$2.30</strong></span>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <span class="checkout_button">
+                  <button type="button" class="btn btn-success">Checkout</button>
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      <!--
       <span data-toggle="modal" data-target="#orderModal">
         <button type="button" class="btn btn-primary register-btn mr-auto">
           Register 
       </span>
+      -->
 
       <!-- THE ORDER MODAL -->
-  <div class="modal fade " id="orderModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 
-    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
 
-      <div class="modal-content">
+          <div class="modal-content">
 
-        <div class="modal-header">
+            <div class="modal-header">
 
-          <h4 class="modal-title" id="modalLabel">Drolato Order</h4>
+              <h4 class="modal-title" id="modalLabel">Drolato Order</h4>
 
-          <button type="button" class="close" data-dismiss="modal" aria-label="close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+              <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true">&times;</span>
+              </button>
 
-        </div> 
+            </div> 
 
-        <div class="modal-body">
+          <div class="modal-body">
 
-          <div class="alert alert-danger visually-hidden" id="bad-word-notice" role="alert">
-            <strong>ALERT! A string you entered seems to be suspicious. You still have <span class="input_attempts_number">2</span> attempts before your session will be blocked!</strong>
-          </div>
+            <div class="alert alert-danger visually-hidden" id="bad-word-notice" role="alert">
+              <strong>ALERT! A string you entered seems to be suspicious. You still have <span class="input_attempts_number">2</span> attempts before your session will be blocked!</strong>
+            </div>
 
-          <form class="order-form" novalidate>
+            <form class="order-form visually-hidden" novalidate>
 
-            <div class="row g-2">
+              <div class="row g-2">
 
-              <div class="col-md">
+                <div class="col-md">
 
-                <div class="form-floating mb-3">
+                  <div class="form-floating mb-3">
 
-                  <input type="text" class="form-control" id="firstNameInput" aria-describedby="firstName" placeholder="First Name" required>
-                  <label for="firstNameInput" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstNameInput" aria-describedby="firstName" placeholder="First Name" autocomplete="off" required>
+                    <label for="firstNameInput" class="form-label">First Name</label>
 
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
 
-                  <div class="invalid-feedback">
-                    Please provide your first name.
-                  </div>
+                    <div class="invalid-feedback">
+                      Please provide your first name.
+                    </div>
 
-                </div> 
+                  </div> 
 
-              </div>
+                </div>
 
-              <div class="col-md">
+                <div class="col-md">
 
-                <div class="form-floating mb-3">
+                  <div class="form-floating mb-3">
 
-                  <input type="text" class="form-control" id="lastNameInput" aria-describedby="lastName" placeholder="Last Name" required> 
-                  <label for="lastNameInput" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastNameInput" aria-describedby="lastName" placeholder="Last Name" autocomplete="off" required> 
+                    <label for="lastNameInput" class="form-label">Last Name</label>
 
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
 
-                  <div class="invalid-feedback">
-                    Please provide your last name.
+                    <div class="invalid-feedback">
+                      Please provide your last name.
+                    </div>
+
                   </div>
 
                 </div>
 
               </div>
 
-            </div>
+              <div class="form-floating mb-3">
 
-            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="emailInput" aria-describedby="email" placeholder="Email" autocomplete="off" required>
+                <label for="emailInput" class="form-label">Email Address</label>
 
-              <input type="email" class="form-control" id="emailInput" aria-describedby="email" placeholder="Email" required>
-              <label for="emailInput" class="form-label">Email Address</label>
+                <div class="valid-feedback">
+                  Looks good! 
+                </div>
 
-              <div class="valid-feedback">
-                Looks good! 
+                <div class="invalid-feedback">
+                  Please provide your email.
+                </div>
+
               </div>
 
-              <div class="invalid-feedback">
-                Please provide your email.
+              <div class="form-floating mb-3">
+
+                <input type="address" class="form-control" id="addressInput" aria-describedby="address" placeholder="123 Main St" autocomplete="off" required>
+                <label for="addressInput" class="form-label">Address</label>
+
+                <div class="valid-feedback">
+                  Looks good! 
+                </div>
+
+                <div class="invalid-feedback">
+                  Please provide your address. 
+                </div>
+
               </div>
 
-            </div>
-
-            <div class="form-floating mb-3">
-
-              <input type="address" class="form-control" id="addressInput" aria-describedby="address" placeholder="123 Main St" required>
-              <label for="addressInput" class="form-label">Address</label>
-
-              <div class="valid-feedback">
-                Looks good! 
+              <div class="row g-2">
+                <div class="col-md-4">
+                  <label for="coconutMangoQuantityInput" class="form-label">Quantity: </label>
+                </div>
+                <div class="col-md-8">
+                  <input type="range" class="form-range" id="quantity_scoops_coconut_mango" aria-describedby="coconutMangoQuantity" min="0" max="20" step="1" required>
+                </div>
               </div>
 
-              <div class="invalid-feedback">
-                Please provide your address. 
+              <div>
+                <p>Cost: <span class="coconut_mango_prize"></span></p>
               </div>
 
-            </div>
+              <p><input type="button" value="Order Detail"></p>
 
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="gelato-type" id="cup-coconut-mango" value="cup">
-              <label class="form-check-label" for="cup-coconut-mango">
-                Cup 
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/000/558/860/small/icecream_cup_solid-03.jpg" class="img-responsive" height="90">
-              </label> 
-                    
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="gelato-type" id="cone-coconut-mango" value="cone">
-              <label class="form-check-label" for="cone-coconut-mango">
-                Cone
-                <img src="https://img.icons8.com/ios/452/ice-cream-cone.png" class="img-responsive" height="80">
-              </label> 
-            </div>
-
-            <div class="row g-2">
-              <div class="col-md-4">
-                <label for="coconutMangoQuantityInput" class="form-label">Quantity: </label>
-              </div>
-              <div class="col-md-8">
-                <input type="range" class="form-range" id="quantity_scoops_coconut_mango" aria-describedby="coconutMangoQuantity" min="0" max="20" step="1" required>
-              </div>
-            </div>
-
-            <div>
-              <p>Cost: <span class="coconut_mango_prize"></span></p>
-            </div>
-
-            <p><input type="button" value="Order Detail"></p>
-
-              <div class="order-detail">
-              </div>
+              <div class="order-detail"></div>
 
               <div class="accordion" id="customer_data_accordion">
 
@@ -470,12 +552,19 @@
 </div>
 
 	<script src="script.js"></script>
-  
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>  
+  
 </body>
 
 </html>
