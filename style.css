@@ -26,6 +26,11 @@
   justify-content: center;
 }
 
+#search-bar {
+  width: 55%;
+  border-radius: 6%;
+}
+
 .card-title {
   font-family: 'Fredoka One', cursive;
 }
