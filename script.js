@@ -2,23 +2,63 @@
 // ********* SEARCH FEATURE *********** //
 // ************************************ //
 
-var gelatos = [
+var products = [
   {
     "name": "Coconut Mango",
     "description": "",
-    "price": ""
+    "price": "$2.30"
   },
   {
     "name": "Salted Caramel",
     "description": "",
-    "price": ""
+    "price": "$2.50"
   },
   {
     "name": "Strawberries And Cream",
     "description": "",
-    "price": ""
+    "price": "$1.90"
   }
 ]
+
+
+const handleSearch = event => {
+
+  event.preventDefault()
+
+  var searchTerm = $("#searchProductBar").val()
+
+  var tokens = searchTerm.toLowerCase().split(' ').filter(token => {
+                   return token.trim() !== ''
+                 })
+
+  if (tokens.length) {
+
+    var searchTermRegex = new RegExp(tokens.join('|'), 'gim')
+
+    var filteredList = products.filter(product => {
+
+      var productString = ''
+
+      for (var key in product) {
+
+        if (product.hasOwnProperty(key) && product[key] !== '') {
+          productString += product[key].toString().toLowerCase().trim() + ' '
+        }
+
+      }
+
+      return productString.match(searchTermRegex)
+
+    })
+
+    console.log(filteredList)
+
+  }
+
+}
+
+$(".search-btn").on('click', handleSearch)
+
 
 // ************************************** //
 // ********* SELECT PRODUCTS  *********** //
@@ -188,6 +228,7 @@ const isValidName = name => {
   return (name.match(regex)) ? true : false
 }
 
+/*
 $("button[type='submit']").click(e => {
   
   e.preventDefault()
@@ -230,11 +271,11 @@ $("button[type='submit']").click(e => {
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log(`ERROR: ${error}`))
-  /*
+
   setTimeout(() => {
     $("#bad-word-notice").removeClass("visually-hidden")
   }, 1000)
-  */
+
 
   ///////////////////////////////////////////////////////////////
 
@@ -276,6 +317,8 @@ $("button[type='submit']").click(e => {
 
 
 })
+
+*/
 
 // *********************************************** //
 // ************ GENERATING PROMO CODE ************ //
