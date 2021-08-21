@@ -74,7 +74,7 @@
 
   <div class="jumbotron">
 
-    <h1 class="display-6 leading-title text-light">Don't know what to choose? Gotcha!</h1>
+    <h1 class="display-6 leading-title text-light text-center mb-3">Don't know what to choose? Gotcha!</h1>
     <span>
       <button type="button" class="btn btn-warning">Random Order</button>
     </span>
@@ -83,12 +83,12 @@
 
       <div class="form-outline bg-light" id="search-bar">
 
-        <input type="search" id="searchProductBar" class="form-control" aria-label="Search" placeholder="Happy to help you!" />
+        <input type="search" id="searchProductBar" class="form-control" aria-label="Search" placeholder="Happy to help you!" autocomplete="off" />
         <label class="form-label" for="searchProductBar">Search</label>
 
       </div>
 
-      <button type="button" class="btn btn-primary">
+      <button type="submit" class="btn btn-primary search-btn">
         <i class="fas fa-search"></i>
       </button>
 
@@ -330,13 +330,13 @@
               </div>
 
               <div class="modal-footer">
-
+               <!--
                 <button type="submit" class="btn btn-primary mr-auto">
                   <span class="spinner-border spinner-border-sm visually-hidden" role="status" aria-hidden="true"></span>
                   <span class="confirm-button" >Confirm</span>
                   <span class="visually-hidden loading-btn">Loading...</span>
                 </button>
-
+               -->
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                   Close
                 </button>
