@@ -59,6 +59,19 @@ const handleSearch = event => {
 
 $(".search-btn").on('click', handleSearch)
 
+products_names = []
+
+for (var product of products) {
+  products_names.push(product.name)
+}
+
+console.log(products_names)
+
+$(() => {
+  $("#searchProductBar").autocomplete({
+    source: products_names
+  })
+})
 
 // ************************************** //
 // ********* SELECT PRODUCTS  *********** //
