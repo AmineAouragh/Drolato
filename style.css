@@ -44,3 +44,7 @@
   width: 50px;
 }
 
+.like, .share {
+  cursor: pointer;
+  margin-right: 5px;
+}
