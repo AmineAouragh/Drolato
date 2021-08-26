@@ -334,6 +334,31 @@ $("button[type='submit']").click(e => {
 */
 
 // *********************************************** //
+// ************ LIKE PRODUCTS FEATURE ************ //
+// *********************************************** //
+
+
+
+// ************************************************* //
+// ************ SHARE PRODUCTS FEATURE ************* //
+// ************************************************* //
+
+const urlToShare = "https://drolato-part-3-number-calculation-3.amineaouragh.repl.co/index.html"
+
+
+const text = "I just found an awesome gelato flavor! I cannot wait for you to try it and tell me what you think! YUMMY!"
+
+const textToShareOnTwitter = `${text} You can get a look in here: `
+
+$(".share-link-telegram").attr("onclick", `window.open('https://t.me/share/url?url=${urlToShare}&text=${text}')`)
+
+$(".share-link-twitter").attr("href", `https://twitter.com/intent/tweet?text=${textToShareOnTwitter}&url=${urlToShare}&via=AmineAouragh&hashtags=gelato,icecream`)
+
+$("#share-coconut-mango").click(function () {
+  $(".listing").fadeToggle(600);
+});
+
+// *********************************************** //
 // ************ GENERATING PROMO CODE ************ //
 // *********************************************** //
 
@@ -370,37 +395,3 @@ $(() => {
       }, false)
     })
 })
-
-
-//****************//
-/*
-$('.checkout-button').click(() => {
-  // Check whether the user wants a cone or a cup
-  const getIcecreamType = $('.icecream-type').val()
-  localStorage.setItem("Icecream Type", getIcecreamType)
-
-  // Get the quanity of scoops of items //
-  const getQuantityCoconutMango = $('.quantity-scoops-coconut-mango').val()
-  localStorage.setItem("Coconut Mango Quantity", getQuantityCoconutMango)
-
-  const getQuantitySaltedCaramel = $('.quantity-scoops-salted-caramel').val()
-  localStorage.setItem("Salted Caramel Quantity", getQuantitySaltedCaramel)
-
-  const getQuantityStrawberriesCream = $('.quantity-scoops-strawberries-cream').val()
-  localStorage.setItem("Strawberries and Cream Quantity", getQuantityStrawberriesCream)
-
-  const total_quantity = parseInt(getQuantityCoconutMango) + parseInt(getQuantitySaltedCaramel) + parseInt(getQuantityStrawberriesCream)
-
-  // calculate the total cost of the order //
-  let total_coconut_mango = coconut_mango_price * getQuantityCoconutMango
-  let total_salted_caramel = salted_caramel_price * getQuantitySaltedCaramel
-  let total_strawberries_cream = strawberries_cream_price * getQuantityStrawberriesCream
-
-  let total_price = total_coconut_mango + total_salted_caramel + total_strawberries_cream
-
-  let messageText = `Nice to meet you ${localStorage.getItem("Customer Name")}! You ordered ${total_quantity} ice creams in type: ${getIcecreamType}. \nYour total order cost is: $ ${total_price.toFixed(2)}`; 
-
-  // Alert with final amount
-  alert(messageText);
-});
-*/
