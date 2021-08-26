@@ -46,5 +46,53 @@
 
 .like, .share {
   cursor: pointer;
-  margin-right: 5px;
+  border: none;
+}
+
+.share-toggle, .fixed_share ul.listing > li {
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.5s ease-in-out;
+}
+
+ul.listing {
+  list-style: none;
+  display: none;
+}
+
+.fixed_share ul.listing > li {
+  margin-bottom: 10px; 
+}
+
+.fixed_share ul.listing > li > a {
+  display: block;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.share-toggle:hover,
+.fixed_share ul.listing > li:hover {
+  transform: scale(1.1) rotate(360deg);
+}
+
+.fixed_share .whatsapp, 
+.fixed_share .whatsapp > span{
+  color: #25D366;
+}
+
+.fixed_share .telegram,
+.fixed_share .telegram > span{
+  color: #0088cc;
+}
+
+.fixed_share .twitter,
+.fixed_share .twitter > a{
+  color: #00acee;
 }
