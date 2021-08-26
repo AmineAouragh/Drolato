@@ -22,6 +22,7 @@
 
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
   <!-- MDB -->
@@ -466,12 +467,45 @@
 
                 <div id="like-coconut-mango" class="p-2 bd-highlight like">
                   <span class="sr-only">Like Product</span>
-                  <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+                  <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3"></i>
                 </div>
 
                 <div id="share-coconut-mango" class="p-2 bd-highlight share">
-                  <span class="sr-only">Share Product</span>
-                  <i class="fas fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
+
+                  <div class="fixed_share">
+
+                    <ul class="listing">
+
+                      <li class="whatsapp">
+                        <span onclick="window.open('whatsapp://send?text=https://drolato-part-3-number-calculation-3.amineaouragh.repl.co/index.html')" class="share-link-whatsapp">
+                          <span class="sr-only">Share on WhatsApp</span>
+                          <i class="fab fa-whatsapp"></i>
+                        </span>
+                      </li>
+
+                      <li class="telegram">
+                        <span class="share-link-telegram">
+                          <span class="sr-only">Share on Telegram</span>
+                          <i class="fab fa-telegram"></i>
+                        </span>
+                      </li> 
+
+                      <li class="twitter">
+                        <a class="share-link-twitter">
+                          <span class="sr-only">Share on Twitter</span>
+                          <i class="fab fa-twitter"></i>
+                        </a>
+                      </li>
+
+                    </ul>
+
+                    <span class="share-toggle">
+                      <span class="sr-only">Share Product</span>
+                      <i class="fas fa-share-alt text-muted float-right p-1 my-1"></i>
+                    </span>
+
+                  </div>
+
                 </div>
 
               </div>
@@ -520,7 +554,7 @@
 
               <div class="d-flex bd-highlight mb-3">
 
-                <button type="button" class="btn btn-primary me-auto p-2 bd-highlight" data-toggle="tooltip" data-placement="top" title="Add to cart" id="add-btn-salted-caramel" >
+                <button type="button" class="btn btn-primary me-auto p-2 bd-highlight" data-toggle="tooltip" data-placement="top" title="Add to cart" id="add-btn-saltedCaramel" >
                   <span class="sr-only">Add To Cart</span>
                   <i class="fa fa-shopping-basket"></i>
                 </button>
@@ -564,7 +598,7 @@
 
               <div class="d-flex bd-highlight mb-3">
 
-                <button type="button" class="btn btn-primary me-auto p-2 bd-highlight" data-toggle="tooltip" data-placement="top" title="Add to cart" id="add-btn-strawberries-cream" >
+                <button type="button" class="btn btn-primary me-auto p-2 bd-highlight" data-toggle="tooltip" data-placement="top" title="Add to cart" id="add-btn-strawberries" >
                   <span class="sr-only">Add To Cart</span>
                   <i class="fa fa-shopping-basket"></i>
                 </button>
@@ -594,6 +628,7 @@
 </div>
 
 	<script src="script.js"></script>
+  
   <!-- MDB -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
 
