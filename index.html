@@ -30,9 +30,32 @@
 
 	<link href="style.css" rel="stylesheet" type="text/css" />
 
+  <!--
+    Open Graph tags to customize link previews.
+  -->
+  <meta property="og:url" content="https://drolato-part-3-number-calculation-3.amineaouragh.repl.co/index.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DROLATO has a brand new gelato flavour for the summer" />
+  <meta property="og:image" content="https://beamingbaker.com/wp-content/uploads/2015/01/IGT1-3-Ingredient-Homemade-Mango-Ice-Cream-Recipe-Easy-1.jpg" />
+  <meta property="og:description" content="Who doesn't like gelatos?" />
+
 </head>
 
 <body>
+
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }
+    (document, 'script', 'facebook-jssdk'));
+  </script>
 
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <a class="navbar-brand mr-auto" href="#">
@@ -189,7 +212,7 @@
       -->
 
       <!-- THE ORDER MODAL -->
-      <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
 
         <div class="modal-dialog modal-dialog-centered" role="document">
 
@@ -197,7 +220,7 @@
 
             <div class="modal-header">
 
-              <h4 class="modal-title" id="modalLabel">Drolato Order</h4>
+              <h4 class="modal-title" id="orderModalLabel">Drolato Order</h4>
 
               <button type="button" class="close" data-dismiss="modal" aria-label="close">
                 <span aria-hidden="true">&times;</span>
@@ -470,34 +493,9 @@
                   <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3"></i>
                 </div>
 
-                <div id="share-coconut-mango" class="p-2 bd-highlight share">
+                <div id="share-coconut-mango" class="p-2 bd-highlight share" data-target="#shareButtonsModal" data-toggle="modal">
 
                   <div class="fixed_share">
-
-                    <ul class="listing">
-
-                      <li class="whatsapp">
-                        <span onclick="window.open('whatsapp://send?text=https://drolato-part-3-number-calculation-3.amineaouragh.repl.co/index.html')" class="share-link-whatsapp">
-                          <span class="sr-only">Share on WhatsApp</span>
-                          <i class="fab fa-whatsapp"></i>
-                        </span>
-                      </li>
-
-                      <li class="telegram">
-                        <span class="share-link-telegram">
-                          <span class="sr-only">Share on Telegram</span>
-                          <i class="fab fa-telegram"></i>
-                        </span>
-                      </li> 
-
-                      <li class="twitter">
-                        <a class="share-link-twitter">
-                          <span class="sr-only">Share on Twitter</span>
-                          <i class="fab fa-twitter"></i>
-                        </a>
-                      </li>
-
-                    </ul>
 
                     <span class="share-toggle">
                       <span class="sr-only">Share Product</span>
@@ -513,6 +511,78 @@
             </div>
 
           </div>
+
+        </div>
+
+        <div class="modal fade" id="shareButtonsModal" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel" aria-hidden="true">
+
+          <div class="modal-dialog modal-dialog-centered" role="document">
+
+            <div class="modal-content">
+
+              <div class="modal-header">
+
+                <h2 class="modal-title" id="shareModalLabel">
+                  Share Via:
+                </h2>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+
+              </div>
+
+              <div class="modal-body">
+
+                <div class="row share-buttons justify-content-around">
+
+                  <div class="col-6 whatsapp">
+                    <span onclick="window.open('whatsapp://send?text=https://drolato-part-3-number-calculation-3.amineaouragh.repl.co/index.html')" class="share-link-whatsapp">
+                      <span class="sr-only">Share on WhatsApp</span>
+                      <i class="fab fa-whatsapp"></i>
+                      <p class="share-btn-wtsp-name">WhatsApp</p>
+                    </span>
+                    
+                  </div>
+
+                  <div class="col-6 telegram">
+                    <span class="share-link-telegram">
+                      <span class="sr-only">Share on Telegram</span>
+                      <i class="fab fa-telegram"></i>
+                      <p class="share-btn-tlg-name">Telegram</p>
+                    </span>
+                    
+                  </div> 
+
+                  <div class="col-6 twitter">
+                    <a class="share-link-twitter">
+                      <span class="sr-only">Share on Twitter</span>
+                      <i class="fab fa-twitter"></i>
+                      <p class="share-btn-twt-name">Twitter</p>
+                    </a>
+                    
+                  </div>
+
+                  <div class="col-6 facebook">
+                    <a class="share-link-facebook" href="http://www.facebook.com/share.php?u=https://drolato-part-3-number-calculation-3.amineaouragh.repl.co/index.html">
+                      <span class="sr-only">Share on Facebook</span>
+                      <i class="fab fa-facebook"></i>
+                      <p class="share-btn-fb-name">Facebook</p>
+                    </a>
+                   
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+
+            </div>
+
+          </div> 
 
         </div>
 
