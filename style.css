@@ -44,55 +44,72 @@
   width: 50px;
 }
 
-.like, .share {
-  cursor: pointer;
-  border: none;
-}
-
-.share-toggle, .fixed_share ul.listing > li {
+.share-toggle, .fixed_share  {
   font-size: 20px;
   width: 40px;
   height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  list-style: none;
   cursor: pointer;
   border-radius: 50%;
-  transition: all 0.5s ease-in-out;
 }
 
-ul.listing {
-  list-style: none;
-  display: none;
-}
-
-.fixed_share ul.listing > li {
-  margin-bottom: 10px; 
-}
-
-.fixed_share ul.listing > li > a {
-  display: block;
-  width: 100%;
-  height: auto;
-  text-align: center;
-}
-
-.share-toggle:hover,
-.fixed_share ul.listing > li:hover {
+.share-toggle:hover {
   transform: scale(1.1) rotate(360deg);
 }
 
-.fixed_share .whatsapp, 
-.fixed_share .whatsapp > span{
+div.share-buttons > div {
+  font-size: 30px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.whatsapp > span > i{
   color: #25D366;
 }
 
-.fixed_share .telegram,
-.fixed_share .telegram > span{
+.telegram > span > i{
   color: #0088cc;
 }
 
-.fixed_share .twitter,
-.fixed_share .twitter > a{
+.twitter > a > i{
   color: #00acee;
 }
+
+.twitter > a {
+  text-decoration: none;
+  color: black;
+}
+
+.twitter > a:hover {
+  color: #00acee;
+}
+
+.facebook > a > i{
+  color: #3b5998;
+}
+
+.facebook > a {
+  text-decoration: none;
+  color: black;
+}
+
+.facebook > a:hover {
+  color: #3b5998;
+}
+
+.share-btn-wtsp-name:hover {
+  color: #25D366;
+}
+
+.share-btn-tlg-name:hover {
+  color: #0088cc;
+}
+
+.share-btn-twt-name:hover {
+  color: #00acee;
+}
+
+.share-btn-fb-name:hover {
+  color: #3b5998;
+}
+
