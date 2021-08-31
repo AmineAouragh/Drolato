@@ -98,6 +98,11 @@
 
   <div class="jumbotron">
 
+    <button type="button" class=" liked-products">
+      <i class="fas fa-heart"></i>
+      Liked Products
+    </button>
+
     <h1 class="display-6 leading-title text-light text-center mb-3">Don't know what to choose? Gotcha!</h1>
     <span>
       <button type="button" class="btn btn-warning">Random Order</button>
@@ -459,11 +464,11 @@
 
       </div>
 
-	<div class="container">
+	<div class="container-fluid">
 
-    <div class="row">
+    <div class="row d-flex justify-content-center">
 
-      <div class="col col-xs-12 col-sm-6 col-md-4">
+      <div class="col col-xs-10 col-sm-5 col-md-3">
 
         <div class="card card-first mt-3">
 
@@ -483,15 +488,15 @@
 
               <div class="d-flex bd-highlight mb-3">
 
-                <button type="button" class="btn btn-primary me-auto p-2 bd-highlight" data-toggle="tooltip" data-placement="top" title="Add to cart" id="add-btn-coconut" >
+                <button type="button" class="btn btn-primary me-auto p-2 bd-highlight" id="add-btn-coconut" >
                   <span class="sr-only">Add To Cart</span>
                   <i class="fa fa-shopping-basket"></i>
                 </button>
 
-                <div id="like-coconut-mango" class="p-2 bd-highlight like">
+                <span id="like-coconut-mango" class="p-2 bd-highlight like">
                   <span class="sr-only">Like Product</span>
-                  <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3"></i>
-                </div>
+                  <i class="fas fa-heart p-1 my-1 mr-3"></i>
+                </span>
 
                 <div id="share-coconut-mango" class="p-2 bd-highlight share" data-target="#shareButtonsModal" data-toggle="modal">
 
@@ -604,7 +609,7 @@
 
       </div>
 
-      <div class="col col-xs-12 col-sm-6 col-md-4">
+      <div class="col col-xs-10 col-sm-5 col-md-3">
 
         <div class="card card-second mt-3">
 
@@ -624,20 +629,29 @@
 
               <div class="d-flex bd-highlight mb-3">
 
-                <button type="button" class="btn btn-primary me-auto p-2 bd-highlight" data-toggle="tooltip" data-placement="top" title="Add to cart" id="add-btn-saltedCaramel" >
+                <button type="button" class="btn btn-primary me-auto p-2 bd-highlight" id="add-btn-saltedCaramel" >
                   <span class="sr-only">Add To Cart</span>
                   <i class="fa fa-shopping-basket"></i>
                 </button>
 
                 <div id="like-salted-caramel" class="p-2 bd-highlight like">
                   <span class="sr-only">Like Product</span>
-                  <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+                  <i class="fas fa-heart p-1 my-1 mr-3"></i>
                 </div>
 
-                <div id="share-salted-caramel" class="p-2 bd-highlight share">
-                  <span class="sr-only">Share Product</span>
-                  <i class="fas fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
+                <div id="share-salted-caramel" class="p-2 bd-highlight share" data-target="#shareButtonsModal" data-toggle="modal">
+
+                  <div class="fixed_share">
+
+                    <span class="share-toggle">
+                      <span class="sr-only">Share Product</span>
+                      <i class="fas fa-share-alt text-muted float-right p-1 my-1"></i>
+                    </span>
+
+                  </div>
+
                 </div>
+
               </div>
 
             </div>
@@ -648,7 +662,7 @@
 
       </div>
 
-      <div class="col col-xs-12 col-sm-6 col-md-4">
+      <div class="col col-xs-10 col-sm-5 col-md-3">
 
         <div class="card card-third mt-3">
 
@@ -668,19 +682,27 @@
 
               <div class="d-flex bd-highlight mb-3">
 
-                <button type="button" class="btn btn-primary me-auto p-2 bd-highlight" data-toggle="tooltip" data-placement="top" title="Add to cart" id="add-btn-strawberries" >
+                <button type="button" class="btn btn-primary me-auto p-2 bd-highlight" id="add-btn-strawberries" >
                   <span class="sr-only">Add To Cart</span>
                   <i class="fa fa-shopping-basket"></i>
                 </button>
 
                 <div id="like-strawberries-cream" class="p-2 bd-highlight like">
                   <span class="sr-only">Like Product</span>
-                  <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+                  <i class="fas fa-heart p-1 my-1 mr-3"></i>
                 </div>
 
-                <div id="share-strawberries-cream" class="p-2 bd-highlight share">
-                  <span class="sr-only">Share Product</span>
-                  <i class="fas fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
+                <div id="share-strawberries-cream" class="p-2 bd-highlight share" data-target="#shareButtonsModal" data-toggle="modal">
+
+                  <div class="fixed_share">
+
+                    <span class="share-toggle">
+                      <span class="sr-only">Share Product</span>
+                      <i class="fas fa-share-alt text-muted float-right p-1 my-1"></i>
+                    </span>
+
+                  </div>
+
                 </div>
 
               </div>
