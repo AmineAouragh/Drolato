@@ -337,6 +337,14 @@ $("button[type='submit']").click(e => {
 // ************ LIKE PRODUCTS FEATURE ************ //
 // *********************************************** //
 
+$("#like-coconut-mango").click(function() {
+  if ($(this).hasClass("liked")) {
+    $(this).removeClass("liked")
+  } else {
+    $(this).addClass("liked")
+  }
+})
+
 
 
 // ************************************************* //
