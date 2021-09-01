@@ -98,10 +98,27 @@
 
   <div class="jumbotron">
 
-    <button type="button" class=" liked-products">
+    <button type="button" class="liked-products" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" >
       <i class="fas fa-heart"></i>
-      Liked Products
+      Liked
     </button>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+
+      <div class="offcanvas-header">
+
+        <h3 id="offcanvasRightLabel">Liked</h3>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+      </div>
+
+      <div class="offcanvas-body">
+
+        
+
+      </div>
+
+    </div>
 
     <h1 class="display-6 leading-title text-light text-center mb-3">Don't know what to choose? Gotcha!</h1>
     <span>
