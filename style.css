@@ -22,6 +22,15 @@
   position: fixed;
   top: 80px;
   right: 20px;
+  border-radius: 50px;
+  background-color: black;
+  border-width: 0px;
+  color: white;
+  padding: 10px;
+}
+
+.liked-products > .fa-heart {
+  color: tomato;
 }
 
 .input-group {
