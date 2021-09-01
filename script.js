@@ -337,13 +337,20 @@ $("button[type='submit']").click(e => {
 // ************ LIKE PRODUCTS FEATURE ************ //
 // *********************************************** //
 
-$("#like-coconut-mango").click(function() {
-  if ($(this).hasClass("liked")) {
-    $(this).removeClass("liked")
-  } else {
-    $(this).addClass("liked")
-  }
-})
+
+const setLikeBtnStyleOnClick = btn => {
+  $(btn).click(function() {
+    if ($(this).hasClass("liked")) {
+      $(this).removeClass("liked")
+    } else {
+      $(this).addClass("liked")
+    }
+  })
+}
+
+setLikeBtnStyleOnClick("#like-coconut-mango")
+setLikeBtnStyleOnClick("#like-salted-caramel")
+setLikeBtnStyleOnClick("#like-strawberries-cream")
 
 
 
