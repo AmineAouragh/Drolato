@@ -27,6 +27,7 @@
   border-width: 0px;
   color: white;
   padding: 10px;
+  z-index: 30;
 }
 
 .liked-products > .fa-heart {
