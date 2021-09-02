@@ -337,6 +337,8 @@ $("button[type='submit']").click(e => {
 // ************ LIKE PRODUCTS FEATURE ************ //
 // *********************************************** //
 
+var liked_products = []
+
 
 const setLikeBtnStyleOnClick = btn => {
   $(btn).click(function() {
@@ -349,8 +351,40 @@ const setLikeBtnStyleOnClick = btn => {
 }
 
 setLikeBtnStyleOnClick("#like-coconut-mango")
+
+$("#like-coconut-mango").click(function() {
+  if ($(this).hasClass("liked")) {
+    const coconutMangoPrice = $("#coconut-mango-scoop-price").text()
+    $(".liked-product-name").text("Coconut Mango")
+    $(".liked-product-price").text(`${coconutMangoPrice}`)
+  } else {
+    $(".liked-product-name").text('')
+    $(".liked-product-price").text('')
+  }
+})
+
+
 setLikeBtnStyleOnClick("#like-salted-caramel")
+
+$("#like-salted-caramel").click(function() {
+  if ($(this).hasClass("liked")) {
+    const saltedCaramelPrice = $("#salted-caramel-scoop-price").text()
+    $(".liked-product-name").text("Salted Caramel") 
+    $(".liked-product-price").text(`${saltedCaramelPrice}`)
+  } else {
+    $(".liked-product-name").text('')
+    $(".liked-product-name").text('')
+  }
+})
+
 setLikeBtnStyleOnClick("#like-strawberries-cream")
+
+
+
+// ************************************************** //
+// ************ LIKED PRODUCTS SECTION ************** //
+// ************************************************** //
+
 
 
 
@@ -410,3 +444,4 @@ $(() => {
       }, false)
     })
 })
+
