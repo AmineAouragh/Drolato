@@ -356,21 +356,33 @@ $("#like-coconut-mango").click(function() {
 
   if ($(this).hasClass("liked")) {
 
-    var prod_header = `<div id='liked_product_header_${coconut_mango_ID}'></div>`
-    var prod_name = `<h5 id='liked_product_name_${coconut_mango_ID}'></h5>`
-    var prod_price = `<span id='liked_product_price_${coconut_mango_ID}'></span>`
+    // Containers
+    var prod_header_container = `<div id='liked_product_header_${coconut_mango_ID}'></div>`
+    var prod_name_container = `<h5 id='liked_product_name_${coconut_mango_ID}'></h5>`
+    var prod_price_container = `<span id='liked_product_price_${coconut_mango_ID}'></span>`
+    // Content
+    var prod_price = $("#coconut-mango-scoop-price").text()
 
-    $("#liked_products_container").append(prod_header)
+    $("#liked_products_container").append(prod_header_container)
 
-    var prod_header_id = $("#liked_products_container div:first-child").attr("id")
-    console.log(prod_header_id)
+    var prod_header_container_id = $("#liked_products_container div:first-child").attr("id")
 
-    $(`#${prod_header_id}`).addClass("d-flex bd-highlight mb-3")
+    $(`#${prod_header_container_id}`).addClass("d-flex bd-highlight mb-3")
 
-    $(`#${prod_header_id}`).append(prod_name)
+    $(`#${prod_header_container_id}`).append(prod_name_container)
 
-    var prod_name_id = $(`#${prod_header_id}:first-child`).attr("id")
-    console.log(prod_name_id)
+    var prod_name_container_id = $(`#${prod_header_container_id}`).children().eq(0).attr("id")
+
+    $(`#${prod_name_container_id}`).addClass("p-2 bd-highlight")
+    $(`#${prod_name_container_id}`).text('Coconut Mango')
+
+    $(`#${prod_header_container_id}`).append(prod_price_container)
+
+    var prod_price_container_id = $(`#${prod_header_container_id}`).children().eq(1).attr("id")
+
+    $(`#${prod_price_container_id}`).addClass("p-2 ms-auto bd-highlight text-success")
+
+    $(`#${prod_price_container_id}`).text(`${prod_price}`)
 
     var content = $("#liked_products_container").html()
     console.log(content)
