@@ -353,14 +353,32 @@ const setLikeBtnStyleOnClick = btn => {
 setLikeBtnStyleOnClick("#like-coconut-mango")
 
 $("#like-coconut-mango").click(function() {
+
   if ($(this).hasClass("liked")) {
-    const coconutMangoPrice = $("#coconut-mango-scoop-price").text()
-    $(".liked-product-name").text("Coconut Mango")
-    $(".liked-product-price").text(`${coconutMangoPrice}`)
-  } else {
-    $(".liked-product-name").text('')
-    $(".liked-product-price").text('')
+
+    var prod_header = `<div id='liked_product_header_${coconut_mango_ID}'></div>`
+    var prod_name = `<h5 id='liked_product_name_${coconut_mango_ID}'></h5>`
+    var prod_price = `<span id='liked_product_price_${coconut_mango_ID}'></span>`
+
+    $("#liked_products_container").append(prod_header)
+
+    var prod_header_id = $("#liked_products_container div:first-child").attr("id")
+    console.log(prod_header_id)
+
+    $(`#${prod_header_id}`).addClass("d-flex bd-highlight mb-3")
+
+    $(`#${prod_header_id}`).append(prod_name)
+
+    var prod_name_id = $(`#${prod_header_id}:first-child`).attr("id")
+    console.log(prod_name_id)
+
+    var content = $("#liked_products_container").html()
+    console.log(content)
+
+    var count = $("#liked_products_container div")
+    console.log(count.length)
   }
+  
 })
 
 
@@ -368,14 +386,12 @@ setLikeBtnStyleOnClick("#like-salted-caramel")
 
 $("#like-salted-caramel").click(function() {
   if ($(this).hasClass("liked")) {
-    const saltedCaramelPrice = $("#salted-caramel-scoop-price").text()
-    $(".liked-product-name").text("Salted Caramel") 
-    $(".liked-product-price").text(`${saltedCaramelPrice}`)
-  } else {
-    $(".liked-product-name").text('')
-    $(".liked-product-name").text('')
+    $("#liked_products_container").append("<div></div>")
+    var count = $("#liked_products_container div")
+    console.log(count.length)
   }
 })
+
 
 setLikeBtnStyleOnClick("#like-strawberries-cream")
 
@@ -444,4 +460,3 @@ $(() => {
       }, false)
     })
 })
-
