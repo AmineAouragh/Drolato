@@ -368,11 +368,25 @@ const addToLikedSection = (id, name, price) => {
   var prod_header_container = `<div id='liked_product_header_${id}'></div>`
   var prod_name_container = `<h5 id='liked_product_name_${id}'></h5>`
   var prod_price_container = `<span id='liked_product_price_${id}'></span>`
+  var buttons_container = `<div id='liked_product_buttons_${id}'></div>`
+
+  // Adding buttons 
+  var add_to_cart_btn = 
+      `<button type='button' class='btn btn-primary' id='add_to_cart_product_${id}'>
+         Add To Cart
+         <i class='fas fa-shopping-basket'></i>
+       </button>`
+  var delete_btn = 
+      `<button type='button' class='btn btn-danger' id='delete_product_${id}'>
+         Remove
+         <i class='fas fa-trash-alt'></i>
+       </button>`
 
   // Retrieving Products Components IDs
   var prod_header_container_id = $(`${prod_header_container}`).attr("id")
   var prod_name_container_id = $(`${prod_name_container}`).attr("id")
   var prod_price_container_id = $(`${prod_price_container}`).attr("id")
+  var buttons_container_id = $(`${buttons_container}`).attr("id")
 
 
   $("#liked_products_container").append(prod_header_container)
@@ -380,6 +394,12 @@ const addToLikedSection = (id, name, price) => {
   $(`#${prod_header_container_id}`).append(prod_name_container)
 
   $(`#${prod_header_container_id}`).append(prod_price_container)
+
+  $("#liked_products_container").append(buttons_container)
+
+  $(`#${buttons_container_id}`).append(add_to_cart_btn)
+
+  $(`#${buttons_container_id}`).append(delete_btn)
 
   // Adding text content to products components
   $(`#${prod_name_container_id}`).text(`${name}`)
@@ -389,12 +409,8 @@ const addToLikedSection = (id, name, price) => {
   $(`#${prod_header_container_id}`).addClass("d-flex bd-highlight mb-3")
   $(`#${prod_name_container_id}`).addClass("p-2 bd-highlight")
   $(`#${prod_price_container_id}`).addClass("p-2 ms-auto bd-highlight text-success")
+  $(`#${buttons_container_id}`).addClass("d-flex justify-content-around")
 
-  var content = $("#liked_products_container").html()
-  console.log(content)
-
-  var count = $("#liked_products_container div")
-  console.log(count.length)
 
 }
 
@@ -404,6 +420,8 @@ $("#like-coconut-mango").click(function() {
 
   if ($(this).hasClass("liked")) {
     addToLikedSection(coconut_mango_ID, "Coconut Mango", coconut_mango_price)
+    count = $("#liked_products_container div")
+    console.log(count.length)
   }
 
 })
@@ -412,6 +430,8 @@ $("#like-salted-caramel").click(function() {
   var salted_caramel_price = $("#salted-caramel-scoop-price").text()
   if ($(this).hasClass("liked")) {
     addToLikedSection(salted_caramel_ID, "Salted Caramel", salted_caramel_price)
+    count = $("#liked_products_container div")
+    console.log(count.length)
   }
 })
 
