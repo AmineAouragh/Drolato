@@ -352,58 +352,7 @@ const setLikeBtnStyleOnClick = btn => {
 
 setLikeBtnStyleOnClick("#like-coconut-mango")
 
-$("#like-coconut-mango").click(function() {
-
-  if ($(this).hasClass("liked")) {
-
-    // Containers
-    var prod_header_container = `<div id='liked_product_header_${coconut_mango_ID}'></div>`
-    var prod_name_container = `<h5 id='liked_product_name_${coconut_mango_ID}'></h5>`
-    var prod_price_container = `<span id='liked_product_price_${coconut_mango_ID}'></span>`
-    // Content
-    var prod_price = $("#coconut-mango-scoop-price").text()
-
-    $("#liked_products_container").append(prod_header_container)
-
-    var prod_header_container_id = $("#liked_products_container div:first-child").attr("id")
-
-    $(`#${prod_header_container_id}`).addClass("d-flex bd-highlight mb-3")
-
-    $(`#${prod_header_container_id}`).append(prod_name_container)
-
-    var prod_name_container_id = $(`#${prod_header_container_id}`).children().eq(0).attr("id")
-
-    $(`#${prod_name_container_id}`).addClass("p-2 bd-highlight")
-    $(`#${prod_name_container_id}`).text('Coconut Mango')
-
-    $(`#${prod_header_container_id}`).append(prod_price_container)
-
-    var prod_price_container_id = $(`#${prod_header_container_id}`).children().eq(1).attr("id")
-
-    $(`#${prod_price_container_id}`).addClass("p-2 ms-auto bd-highlight text-success")
-
-    $(`#${prod_price_container_id}`).text(`${prod_price}`)
-
-    var content = $("#liked_products_container").html()
-    console.log(content)
-
-    var count = $("#liked_products_container div")
-    console.log(count.length)
-  }
-  
-})
-
-
 setLikeBtnStyleOnClick("#like-salted-caramel")
-
-$("#like-salted-caramel").click(function() {
-  if ($(this).hasClass("liked")) {
-    $("#liked_products_container").append("<div></div>")
-    var count = $("#liked_products_container div")
-    console.log(count.length)
-  }
-})
-
 
 setLikeBtnStyleOnClick("#like-strawberries-cream")
 
@@ -413,7 +362,58 @@ setLikeBtnStyleOnClick("#like-strawberries-cream")
 // ************ LIKED PRODUCTS SECTION ************** //
 // ************************************************** //
 
+const addToLikedSection = (id, name, price) => {
 
+  // Containers
+  var prod_header_container = `<div id='liked_product_header_${id}'></div>`
+  var prod_name_container = `<h5 id='liked_product_name_${id}'></h5>`
+  var prod_price_container = `<span id='liked_product_price_${id}'></span>`
+
+  // Retrieving Products Components IDs
+  var prod_header_container_id = $(`${prod_header_container}`).attr("id")
+  var prod_name_container_id = $(`${prod_name_container}`).attr("id")
+  var prod_price_container_id = $(`${prod_price_container}`).attr("id")
+
+
+  $("#liked_products_container").append(prod_header_container)
+
+  $(`#${prod_header_container_id}`).append(prod_name_container)
+
+  $(`#${prod_header_container_id}`).append(prod_price_container)
+
+  // Adding text content to products components
+  $(`#${prod_name_container_id}`).text(`${name}`)
+  $(`#${prod_price_container_id}`).text(`${price}`)
+
+  // Styling Products Components
+  $(`#${prod_header_container_id}`).addClass("d-flex bd-highlight mb-3")
+  $(`#${prod_name_container_id}`).addClass("p-2 bd-highlight")
+  $(`#${prod_price_container_id}`).addClass("p-2 ms-auto bd-highlight text-success")
+
+  var content = $("#liked_products_container").html()
+  console.log(content)
+
+  var count = $("#liked_products_container div")
+  console.log(count.length)
+
+}
+
+$("#like-coconut-mango").click(function() {
+
+  var coconut_mango_price = $("#coconut-mango-scoop-price").text()
+
+  if ($(this).hasClass("liked")) {
+    addToLikedSection(coconut_mango_ID, "Coconut Mango", coconut_mango_price)
+  }
+
+})
+
+$("#like-salted-caramel").click(function() {
+  var salted_caramel_price = $("#salted-caramel-scoop-price").text()
+  if ($(this).hasClass("liked")) {
+    addToLikedSection(salted_caramel_ID, "Salted Caramel", salted_caramel_price)
+  }
+})
 
 
 // ************************************************* //
